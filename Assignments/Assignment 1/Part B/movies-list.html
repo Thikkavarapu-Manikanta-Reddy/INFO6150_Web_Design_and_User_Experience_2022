@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="icon" href="images/icons8-circled-m-16.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header id="header">
+        <div>
+            <h1 class="heading">Movies</h1>
+        </div>
+        <div>
+            <input class="search-box" type="text" placeholder="Search Movies" />
+        </div>
+    </header>
+
+    <section>
+        <div class="section-title">
+            Action
+        </div>
+        <div class="movie-list">
+            <div>
+                <div class="card">
+                    <img src="./images/batman.jpg" class="movie-image" alt="The Dark Knight">
+                    <div class="card-data">
+                        <h4>The Dark Knight</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <video class="video-audio" id="video1" width="290" controls>
+                        <source src="./videos/batman.mp4" type="video/mp4">
+                    </video>
+                    <button onclick="playPause1()" class="play-button">Play/Pause trailer</button>
+                </div>
+            </div>
+            <div>
+                <div class="card">
+                    <img src="./images/spiderman.jpg" class="movie-image" alt="Spider-Man: Into the Spider-Verse">
+                    <div class="card-data">
+                        <h4>Spider-Man: Into the Spider-Verse</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <video class="video-audio" id="video2" width="290" controls>
+                        <source src="./videos/Spider.mp4" type="video/mp4">
+                    </video>
+                    <button onclick="playPause2()" class="play-button">Play/Pause trailer</button>
+                </div>
+            </div>
+            <div>
+                <div class="card">
+                    <img src="./images/avengers.jpg" class="movie-image" alt="Avengers: Infinity War">
+                    <div class="card-data">
+                        <h4>Avengers: Infinity War</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <video class="video-audio" id="video3" width="290" controls>
+                        <source src="./videos/Avengers.mp4" type="video/mp4">
+                    </video>
+                    <button onclick="playPause3()" class="play-button">Play/Pause trailer</button>
+                </div>
+            </div>
+            <div>
+                <div class="card">
+                    <img src="./images/Indiana.jpg" class="movie-image" alt="Raiders of the Lost Ark">
+                    <div class="card-data">
+                        <h4>Raiders of the Lost Ark</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <video class="video-audio" id="video4" width="290" controls>
+                        <source src="./videos/Indiana.mp4" type="video/mp4">
+                    </video>
+                    <button onclick="playPause4()" class="play-button">Play/Pause trailer</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title">
+            Drama
+        </div>
+        <div class="movie-list">
+            <div>
+                <div class="card">
+                    <img src="./images/imitation.jpg" class="movie-image" alt="The Imitation Game">
+                    <div class="card-data">
+                        <h4>The Imitation Game</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <video class="video-audio" id="video5" width="290" controls>
+                        <source src="./videos/Imitation.mp4" type="video/mp4">
+                    </video>
+                    <button onclick="playPause5()" class="play-button">Play/Pause trailer</button>
+                </div>
+            </div>
+            <div>
+                <div class="card">
+                    <img src="./images/schlinder.jpg" class="movie-image" alt="Schindler's List">
+                    <div class="card-data">
+                        <h4>Schindler's List</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <video class="video-audio" id="video6" width="290" controls>
+                        <source src="./videos/Schindler.mp4" type="video/mp4">
+                    </video>
+                    <button onclick="playPause6()" class="play-button">Play/Pause trailer</button>
+                </div>
+            </div>
+            <div>
+                <div class="card">
+                    <img src="./images/no-country.jpg" class="movie-image" alt="No Country for Old Men">
+                    <div class="card-data">
+                        <h4>No Country for Old Men</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <video class="video-audio" id="video7" width="290" controls>
+                        <source src="./videos/Nocountry.mp4" type="video/mp4">
+                    </video>
+                    <button onclick="playPause7()" class="play-button">Play/Pause trailer</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <a href="./music-list.html">Listen to music</a>
+    </footer>
+</body>
+
+<script>
+    var myVideo1 = document.getElementById("video1");
+    var myVideo2 = document.getElementById("video2");
+    var myVideo3 = document.getElementById("video3");
+    var myVideo4 = document.getElementById("video4");
+    var myVideo5 = document.getElementById("video5");
+    var myVideo6 = document.getElementById("video6");
+    var myVideo7 = document.getElementById("video7");
+
+    function playPause1() {
+        if (myVideo1.paused) {
+            myVideo1.play();
+        }
+        else {
+            myVideo1.pause();
+        }
+    }
+
+    function playPause2() {
+        if (myVideo2.paused) {
+            myVideo2.play();
+        }
+        else {
+            myVideo2.pause();
+        }
+    }
+
+    function playPause3() {
+        if (myVideo3.paused) {
+            myVideo3.play();
+        }
+        else {
+            myVideo3.pause();
+        }
+    }
+
+    function playPause4() {
+        if (myVideo4.paused) {
+            myVideo4.play();
+        }
+        else {
+            myVideo4.pause();
+        }
+    }
+
+    function playPause5() {
+        if (myVideo5.paused) {
+            myVideo5.play();
+        }
+        else {
+            myVideo5.pause();
+        }
+    }
+
+    function playPause6() {
+        if (myVideo6.paused) {
+            myVideo6.play();
+        }
+        else {
+            myVideo6.pause();
+        }
+    }
+
+    function playPause7() {
+        if (myVideo7.paused) {
+            myVideo7.play();
+        }
+        else {
+            myVideo7.pause();
+        }
+    }
+</script>
+
+</html>

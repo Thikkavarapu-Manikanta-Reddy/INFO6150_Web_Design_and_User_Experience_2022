@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+    <link rel="icon" href="images/icons8-circled-m-16.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header id="header">
+        <div>
+            <h1 class="heading">Music</h1>
+        </div>
+        <div>
+            <input class="search-box" type="text" placeholder="Search Music" />
+        </div>
+    </header>
+
+    <section>
+        <div class="section-title">
+            Classical Hits
+        </div>
+        <div class="movie-list">
+            <div>
+                <div class="card">
+                    <img src="./images/Classical-1.jpg" class="movie-image" alt="The Dark Knight">
+                    <div class="card-data">
+                        <h4>Vande Mataram</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <audio class="video-audio" id="audio1" controls>
+                        <source src="./audios/Classical-3.mp3" type="audio/mpeg">
+                    </audio>
+                    <button onclick="playPause1()" class="play-button">Play/Pause Music</button>
+                </div>
+            </div>
+
+            <div>
+                <div class="card">
+                    <img src="./images/Classical-2.jpg" class="movie-image" alt="The Dark Knight">
+                    <div class="card-data">
+                        <h4>Tu Hi Re</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <audio class="video-audio" id="audio2" controls>
+                        <source src="./audios/Classical-2.mp3" type="audio/mpeg">
+                    </audio>
+                    <button onclick="playPause2()" class="play-button">Play/Pause Music</button>
+                </div>
+            </div>
+
+            <div>
+                <div class="card">
+                    <img src="./images/Classical-3.jpg" class="movie-image" alt="The Dark Knight">
+                    <div class="card-data">
+                        <h4>Vaanam Mella</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <audio class="video-audio" id="audio3" controls>
+                        <source src="./audios/Classical-3.mp3" type="audio/mpeg">
+                    </audio>
+                    <button onclick="playPause3()" class="play-button">Play/Pause Music</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title">
+            Hip Hop
+        </div>
+        <div class="movie-list">
+
+            <div>
+                <div class="card">
+                    <img src="./images/hiphop-1.jpg" class="movie-image" alt="The Dark Knight">
+                    <div class="card-data">
+                        <h4>God Did</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <audio class="video-audio" id="audio5" controls>
+                        <source src="./audios/Hiphop-1.mp3" type="audio/mpeg">
+                    </audio>
+                    <button onclick="playPause5()" class="play-button">Play/Pause Music</button>
+                </div>
+            </div>
+
+
+            <div>
+                <div class="card">
+                    <img src="./images/hiphop-2.jpg" class="movie-image" alt="The Dark Knight">
+                    <div class="card-data">
+                        <h4>Lose yourself</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <audio class="video-audio" id="audio6" controls>
+                        <source src="./audios/Hiphop-2.mp3" type="audio/mpeg">
+                    </audio>
+                    <button onclick="playPause6()" class="play-button">Play/Pause Music</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="footer">
+        <a href="./movies-list.html">Watch Movies</a>
+    </footer>
+</body>
+
+<script>
+    var myAudio1 = document.getElementById("audio1");
+    var myAudio2 = document.getElementById("audio2");
+    var myAudio3 = document.getElementById("audio3");
+    var myAudio4 = document.getElementById("audio4");
+    var myAudio5 = document.getElementById("audio5");
+    var myAudio6 = document.getElementById("audio6");
+    var myAudio7 = document.getElementById("audio7");
+
+    function playPause1() {
+        if (myAudio1.paused) {
+            myAudio1.play();
+        }
+        else {
+            myAudio1.pause();
+        }
+    }
+
+    function playPause2() {
+        if (myAudio2.paused) {
+            myAudio2.play();
+        }
+        else {
+            myAudio2.pause();
+        }
+    }
+
+    function playPause3() {
+        if (myAudio3.paused) {
+            myAudio3.play();
+        }
+        else {
+            myAudio3.pause();
+        }
+    }
+
+    function playPause4() {
+        if (myAudio4.paused) {
+            myAudio4.play();
+        }
+        else {
+            myAudio4.pause();
+        }
+    }
+
+    function playPause5() {
+        if (myAudio5.paused) {
+            myAudio5.play();
+        }
+        else {
+            myAudio5.pause();
+        }
+    }
+
+    function playPause6() {
+        if (myAudio6.paused) {
+            myAudio6.play();
+        }
+        else {
+            myAudio6.pause();
+        }
+    }
+
+    function playPause7() {
+        if (myAudio7.paused) {
+            myAudio7.play();
+        }
+        else {
+            myAudio7.pause();
+        }
+    }
+</script>
+
+</html>

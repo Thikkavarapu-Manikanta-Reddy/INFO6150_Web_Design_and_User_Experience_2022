@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        .game-title-header {
+            background-color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .detroit {
+            background-image: url('images/Detroit-Become-Human.jpg');
+            height: 100%;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        div.gallery {
+            margin: 40px;
+            float: left;
+            width: 250px;
+            cursor: pointer;
+        }
+
+        div.gallery:hover {
+            border-radius: 15px;
+            transform: scale(1.1);
+            box-shadow: 20px 20px 50px grey;
+        }
+
+        div.gallery img {
+            border-radius: 15px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        div.desc {
+            padding: 15px;
+            text-align: center;
+        }
+
+        div.games-title {
+            border-radius: 20px;
+            margin: auto;
+            padding: 5px;
+            box-shadow: 20px 20px 50px grey;
+            text-align: center;
+            width: 30%;
+        }
+
+        #overlay {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        #text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 50px;
+            color: white;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+        }
+
+        .games-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .add {
+            background-color: black;
+            color: white;
+            padding: 10px;
+        }
+
+        .add:hover {
+            background-color: #DC143C;
+        }
+
+        .lastofus {
+            background-image: url('images/the-last-of-us-part-2-seattle-evidence.jpg.optimal.jpg');
+            height: 100%;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 60%;
+            margin: auto;
+        }
+
+        #customers td,
+        #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: black;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+    <title>GAMESHOP</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="images/icons8-circled-g-16.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+
+        function off() {
+            document.getElementById("overlay").style.display = "none";
+        }
+
+    </script>
+</head>
+
+<body onload="off();">
+    <div id="overlay">
+        <div id="text"> Loading . . .</div>
+    </div>
+
+    <div class="game-title-header">
+        GameShop
+    </div>
+
+    <div class="detroit"></div>
+
+    <br><br>
+    <div class="games-title">
+        <h1>TOP SELLERS</h1>
+    </div>
+
+    <div class="games-container">
+
+        <div class="gallery">
+            <img src="images/Grand-Theft-Auto-V-PS3-300x343.jpg" alt="Mountains" width="250" height="250">
+            <div class="desc">
+                <h4>GRAND THEFT AUTO V PS3 ($10.99)</h4><button class="add">ADD TO CART</button>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <img src="images/PS4-Mirros-Edge-Catalyst-300x343.jpg" alt="Mountains" width="250" height="250">
+            <div class="desc">
+                <h4>MIRRORS EDGE EXTENDED PS4 ($9.99)</h4><button class="add">ADD TO CART</button>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <img src="images/PS4-Call-Of-Duty-WWII-300x343.jpg" alt="Forest" width="250" height="250">
+            <div class="desc">
+                <h4>CALL OF DUTY WW2 PS4 ($10.99)</h4><button class="add">ADD TO CART</button>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <img src="images/God-of-War-III-PS3-300x343.jpg" alt="Northern Lights" width="250" height="250">
+            <div class="desc">
+                <h4>GOD OF WAR 3 EXTENDED PS3 ($4.99)</h4><button class="add">ADD TO CART</button>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <img src="images/Watch-dogs-ps3.jpg" alt="Mountains" width="250" height="250">
+            <div class="desc">
+                <h4>WATCH DOGS-EXTENDED PS3 ($5.99)</h4><button class="add">ADD TO CART</button>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <img src="images/inFAMOUS-Second-Son-PlayStation-4-Cover-Art-300x343.jpg" alt="Trolltunga Norway"
+                width="250" height="250">
+            <div class="desc">
+                <h4>INFAMOUS SECOND SON PS4 ($9.99)</h4><button class="add">ADD TO CART</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="lastofus"></div>
+
+    <div>
+        <br>
+        <div style="text-align:center;">
+            <h4>Upcoming Halloween Games</h4>
+            <hr style="width: 50%;">
+        </div>
+
+        <table id="customers">
+            <tr>
+                <th>Name</th>
+                <th>Platform</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>Resident Evil 4 Remake</td>
+                <td>PS5</td>
+                <td>$39.9</td>
+                <td><button class="add" style="padding:5px;">ADD TO CART</button></td>
+            </tr>
+            <tr>
+                <td>The Evil Within 2</td>
+                <td>PS4</td>
+                <td>$59.9</td>
+                <td><button class="add" style="padding:5px;">ADD TO CART</button></td>
+            </tr>
+            <tr>
+                <td>Soma</td>
+                <td>PS4</td>
+                <td>$29.9</td>
+                <td><button class="add" style="padding:5px;">ADD TO CART</button></td>
+            </tr>
+            <tr>
+                <td>The Quarry</td>
+                <td>PS5</td>
+                <td>$39.9</td>
+                <td><button class="add" style="padding:5px;">ADD TO CART</button></td>
+            </tr>
+        </table>
+        <br>
+
+        <div style="text-align: center;">
+            <a href="./queries.html">Submit queries</a>
+        </div>
+
+        <br>
+
+    </div>
+
+</body>
+
+</html>
