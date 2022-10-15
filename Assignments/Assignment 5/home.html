@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Splitter</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body onload="off();">
+
+  <div id="overlay">
+    <div id="text">
+      <div class="spinner-border"></div>
+    </div>
+  </div>
+
+  <!-- OLD NAV -->
+  <nav class="navbar navbar-expand-md navbar-light">
+    <h3 style="font-weight: 500" class="primaryColor block">
+      <span style="color: white">
+        <i style="font-size: 20px" class="fa fa-random commonSmallFaFaFeatures" aria-hidden="true"></i>
+        Splitter</span>
+    </h3>
+    <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#myLoginModal">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a style="cursor: pointer; color: white" class="smallTextColor button2" data-toggle="modal"
+            data-target="#myLoginModal">
+            <i class="fa fa-share commonFaFaFeatures" style="color: white; font-size: 20px"
+              aria-hidden="true"></i>&nbsp;&nbsp;Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- NEW NAVBAR -->
+  <!-- <nav class="navbar navbar-expand-md navbar-lightnavbar fixed-top">
+    <div class="container">
+      <h3 class="navbar-brand primaryColor block">
+        <span style="color: white">
+          <i
+            style="font-size: 20px"
+            class="fa fa-random commonSmallFaFaFeatures"
+            aria-hidden="true"
+          ></i>
+          Splitter
+        </span>
+      </h3>
+      <button
+        class="btn btn-outline-light"
+        type="submit"
+        data-toggle="modal"
+        data-target="#myLoginModal"
+      >
+        SIGN UP
+      </button>
+    </div>
+  </nav> -->
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <div class="col-6 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> -->
+      <div class="jumboSize">
+        <br /><br />
+        <div class="row">
+          <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            <span class="secondaryColor fontBoldSmall" style="font-size: 30px">
+              Easy splitting of group expenses </span><br />
+            <span class="smallTextColor fontBoldVeryMiniSmall" style="font-size: 15px">
+              <i style="font-size: 12px" class="secondaryColor fa fa-gear fa-spin commonSmallFaFaFeatures"
+                aria-hidden="true"></i>
+              The simplest way to calculate who owes what
+              <i style="font-size: 12px" class="secondaryColor fa fa-gear fa-spin commonSmallFaFaFeatures"
+                aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center"></div>
+          <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center">
+            <br />
+            <button class="downloadButton button3" type="button">
+              <span class="fontBoldMiniSmall">Start Now</span>
+            </button>
+          </div>
+          <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center"></div>
+        </div>
+        <br /><br />
+      </div>
+      <!-- </div> -->
+    </div>
+  </div>
+
+  <div style="background-color: #f5f8fc; padding: 12px"></div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+      <br />
+      <div class="secondaryColor fontBoldSmall" style="padding: 9px; width: 80%; margin: auto">
+        FEATURES
+        <hr style="width: 20%" />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 text-center">
+      <div class="hoverTransition">
+        <i style="margin-top: 25px; font-size: 40px" class="fa fa-users"></i>
+      </div>
+      <br />
+      <p class="secondaryColor fontBoldMiniSmall">Add/View Groups</p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 text-center">
+      <div class="hoverTransition">
+        <i style="margin-top: 25px; font-size: 40px" class="fa fa-user"></i>
+      </div>
+      <br />
+      <p class="secondaryColor fontBoldMiniSmall">Add/View Friends</p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 text-center">
+      <div class="hoverTransition">
+        <i style="margin-top: 25px; font-size: 40px" class="fa fa-rupee"></i>
+      </div>
+      <br />
+      <p class="secondaryColor fontBoldMiniSmall">Add/Split Expenses</p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 text-center">
+      <div class="hoverTransition">
+        <i style="margin-top: 25px; font-size: 40px" class="fa fa-address-card-o"></i>
+      </div>
+      <br />
+      <p class="secondaryColor fontBoldMiniSmall">View Summary</p>
+    </div>
+  </div>
+  <br />
+
+  <div style="background-color: #f5f8fc; padding: 12px"></div>
+
+  <div class="container-fluid">
+    <br />
+    <div style="margin-top: 15px"></div>
+    <div class="row jumboScreen">
+      <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1"></div>
+      <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+        <div style="margin-top: 50px"></div>
+        <h3 class="fontBoldMoreMedium" style="font-size: 30px">
+          Manage debts between friends
+        </h3>
+        <br />
+        <ul>
+          <li>Splitter is the easiest way to share bills with friends</li>
+          <div style="margin-top: 5px"></div>
+          <li>Three steps to be follwed.</li>
+          <div style="margin-top: 5px"></div>
+          <li>
+            Register yourself, create group, add friends and split the expense
+            among friends.
+          </li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
+        <br /><br />
+        <img class="sideImages" src="assets/group.svg" alt="Not_Found" />
+      </div>
+    </div>
+  </div>
+  <div style="background-color: #dcdcdc; padding: 4px"></div>
+  <div style="background-color: #f5f8fc; padding: 9px"></div>
+  <div style="background-color: #f7f7f7" class="contaner-fluid">
+    <br />
+    <div style="margin-top: 15px"></div>
+    <div class="row jumboScreen">
+      <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1"></div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <br /><br />
+        <img class="sideImages imageCenter" src="assets/party.svg" alt="Not_Found" />
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+        <br /><br /><br />
+        <h3 class="fontBoldMoreMedium" style="font-size: 30px">
+          Here's an example
+        </h3>
+        <br />
+        <ul>
+          <li>
+            Hari, Kiran and Manasa went to restaurant and shopping on weekend
+            together
+          </li>
+          <div style="margin-top: 5px"></div>
+          <li>Hari pays for the restaurant bill</li>
+          <div style="margin-top: 5px"></div>
+          <li>Kiran pays for the shopping bill</li>
+          <div style="margin-top: 5px"></div>
+          <li>Manasa pays for the travel bill</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div style="background-color: #dcdcdc; padding: 4px"></div>
+  <div style="background-color: #f5f8fc; padding: 9px"></div>
+  <div class="container-fluid">
+    <br />
+    <div style="margin-top: 15px"></div>
+    <div class="row jumboScreen">
+      <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1"></div>
+      <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+        <br /><br /><br />
+        <h3 class="fontBoldMoreMedium" style="font-size: 30px">
+          Now who owes what?
+        </h3>
+        <br />
+        <ul>
+          <li>Hari creates a group</li>
+          <div style="margin-top: 5px"></div>
+          <li>Adds friends to that group</li>
+          <div style="margin-top: 5px"></div>
+          <li>
+            Puts his entire expenses on restaurant bill which will be splitted
+            among Kiran and Manasa
+          </li>
+          <div style="margin-top: 5px"></div>
+          <li>
+            Same functionality will be done by both Kiran and Manasa on their
+            expenses on specific event
+          </li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
+        <br /><br />
+        <img class="sideImages" src="assets/piggy.svg" alt="Not_Found" />
+      </div>
+    </div>
+  </div>
+  <div style="background-color: #dcdcdc; padding: 4px"></div>
+  <div style="background-color: #f5f8fc; padding: 9px"></div>
+  <div style="background-color: #f7f7f7" class="contaner-fluid">
+    <br />
+    <div style="margin-top: 15px"></div>
+    <div class="row jumboScreen">
+      <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1"></div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <br /><br />
+        <img class="sideImages imageCenter" src="assets/settling.svg" alt="Not_Found" />
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+        <br /><br /><br />
+        <h3 class="fontBoldMoreMedium" style="font-size: 30px">Settling up</h3>
+        <br />
+        <ul>
+          <li>Everyone can then see how much they owe and to whom</li>
+          <div style="margin-top: 5px"></div>
+          <li>They can settle up and get on with the fun things in life</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div style="background-color: #dcdcdc; padding: 4px"></div>
+  <div style="background-color: #f5f8fc; padding: 9px"></div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+      <div class="secondaryColor fontBoldSmall" style="padding: 9px; width: 80%; margin: auto">
+        OUR PRODUCTS
+        <hr style="width: 20%" />
+      </div>
+    </div>
+  </div>
+
+  <!-- CAROUSEL -->
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="assets/carousel3.jpeg" alt="First slide" />
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="assets/carousel2.png" alt="Second slide" />
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="assets/carousel1.jpeg" alt="Third slide" />
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <br><br>
+  <div style="background-color: #f5f8fc; padding: 12px"></div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+      <div class="secondaryColor fontBoldSmall" style="padding: 9px; width: 80%; margin: auto">
+        TESTIMONIALS
+        <hr style="width: 20%" />
+      </div>
+    </div>
+  </div>
+  <!-- CARDS -->
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <img src="/assets/testimonial1.jpg" class="card-img-top" alt="..." style="height: 23rem" />
+        <div class="card-body">
+          <h5 class="card-title">Sophia Lauren</h5>
+          <p class="card-text">
+            "I made back the purchase price in just 48 hours! Thank you for
+            making it pain less, pleasant. The service was excellent. I will
+            refer everyone I know."
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="/assets/testimonial2.jpg" class="card-img-top" alt="..." style="height: 23rem" />
+        <div class="card-body">
+          <h5 class="card-title">Nick Ackerman</h5>
+          <p class="card-text">
+            "Splitter is the most valuable business research we have EVER
+            purchased. Without it, we would have gone bankrupt by now. Will
+            surely recommend it to my peers!"
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="/assets/testimonial3.jpg" class="card-img-top" alt="..." style="height: 23rem" />
+        <div class="card-body">
+          <h5 class="card-title">Laura Maine</h5>
+          <p class="card-text">
+            "Really good, you have saved our business! I made back the purchase
+            price in just 48 hours! man, this thing is getting better and better
+            as I learn more."
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start bg-white text-muted" style="padding-top: 40px">
+
+    <div class="alert alert-warning">
+      <strong>Refer!</strong> your friend & earn $10 each
+    </div>
+
+    <!-- Section: Social media -->
+    <section class=" p-4 border-bottom">
+      <div>
+        <a href="javascript:void(0);" class="me-4 link-secondary" data-toggle="tooltip">
+          <i class="fa fa-facebook-square" style="font-size: 24px; color: #007bff; margin-right: 5px"
+            title="Follow on FB" id="tooltipFB"></i>
+        </a>
+
+        <a href="javascript:void(0);" class="me-4 link-secondary" data-toggle="tooltip">
+          <i class="fa fa-linkedin-square" style="font-size: 24px; margin-right: 5px" title="Connect on LinkedIn"
+            id="tooltipLinkedin"></i>
+        </a>
+        <a href="javascript:void(0);" class="me-4 link-secondary" data-toggle="tooltip">
+          <i class="fa fa-github" style="font-size: 24px; margin-right: 5px" title="View Github" id="tooltipGithub"></i>
+        </a>
+      </div>
+      <div>
+        <span>Connect with us!</span>
+      </div>
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">Splitter</h6>
+            <p>
+              Here you can settle all your payments in one go using our Splitter
+              app!
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Products</h6>
+            <p>
+              <a class="text-reset">Splitter</a>
+            </p>
+            <p>
+              <a class="text-reset">Simplify Debts</a>
+            </p>
+            <p>
+              <a class="text-reset">Easy EMIs</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p>Boston, MA 02130, US</p>
+            <p>splitter@northeastern.edu</p>
+            <p>+ 1 857 376 1472</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025)">
+      © 2022 Copyright: Splitter
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+  <!--Login Modal-->
+  <div class="modal fade" id="myLoginModal">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+        <!-- Modal Header -->
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                  <span class="secondaryColor fontBoldSmall">
+                    <i class="fa fa-share commonFaFaFeatures" style="font-size: 20px"
+                      aria-hidden="true"></i>&nbsp;&nbsp;
+                    Login
+                  </span>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+              </div>
+
+              <hr style="width: 80%" />
+
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2"></div>
+                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 text-center">
+                      <form id="myForm">
+                        <div class="form-group">
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Enter email" />
+                        </div>
+                        <div class="form-group">
+                          <input type="password" class="form-control" id="exampleInputPassword1"
+                            placeholder="Password" />
+                        </div>
+                        <button onclick="return false" class="button button1">
+                          Login</button><br />
+                      </form>
+                      <br><br>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#tooltipFB").tooltip();
+      $("#tooltipLinkedin").tooltip();
+      $("#tooltipGithub").tooltip();
+    });
+
+    function off() {
+      document.getElementById("overlay").style.display = "none";
+    }
+  </script>
+
+</body>
+
+</html>

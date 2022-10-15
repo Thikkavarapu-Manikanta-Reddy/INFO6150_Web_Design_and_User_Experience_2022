@@ -1,0 +1,340 @@
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.alert {
+    width: 90%;
+    margin: auto;
+}
+
+.card {
+    cursor: pointer;
+    transition: all 0.5s ease;
+    text-align: center;
+    transform: scale(0.9);
+    margin: 0 auto;
+    width: 20rem;
+}
+
+.card:hover {
+    transform: scale(1.0);
+    box-shadow: 20px 20px 50px grey;
+}
+
+#carouselExampleIndicators {
+    width: 90%;
+    margin: auto;
+}
+
+.d-block {
+    height: 300px;
+}
+
+.downloadButton {
+    background-color: white;
+    /* Green */
+    border: none;
+    color: black;
+    padding: 2%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 13px;
+    width: 30%;
+}
+
+.button3 {
+    color: #004b79;
+    background-color: white;
+    border: 2px solid white;
+    border-color: #0e76a8;
+}
+
+div.jumboSize {
+    width: 100%;
+    padding: 30px;
+    border-color: grey;
+    background-color: #f7f7f7;
+}
+
+.jumboScreen {
+    padding: 20px;
+}
+
+.navbar-light .navbar-toggler {
+    border-color: white;
+}
+
+.hoverTransition {
+    transition: 0.3s;
+    cursor: pointer;
+    background-color: #f5f8fc;
+    color: #004b79;
+    border-radius: 50%;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    animation: morphing 6s infinite;
+}
+
+.hoverTransition:hover {
+    transform: translate(0, -10px);
+}
+
+@keyframes morphing {
+    0% {
+        border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+    }
+
+    25% {
+        border-radius: 58% 42% 75% 25%/76% 46% 54% 24%;
+    }
+
+    50% {
+        border-radius: 50% 50% 33% 67%/55% 27% 73% 45%;
+    }
+
+    75% {
+        border-radius: 33% 67% 58% 42%/63% 68% 32% 37%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .d-block {
+        height: 200px;
+    }
+
+    div.jumboSize {
+        margin: 0px 0px 0px 0px;
+    }
+
+    .sideImages {
+        width: 70%;
+        height: 70%;
+    }
+
+    .imageCenter {
+        margin-left: 22px;
+    }
+
+    .breakDivDisplayNoShow {
+        display: none;
+    }
+
+    .breakDivDisplayShow {
+        display: inline;
+    }
+
+    .footerAlign {
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 801px) {
+    div.jumboSize {
+        margin: 40px 40px 40px 40px;
+    }
+
+    .imageCenter {
+        margin-left: 0px;
+    }
+
+    .sideImages {
+        width: 60%;
+        height: 60%;
+    }
+}
+
+html,
+body {
+    height: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    font-family: "Poppins", sans-serif !important;
+}
+
+.primaryColor {
+    color: #004b79;
+}
+
+.secondaryColor {
+    color: #0e76a8;
+}
+
+.smallTextColor {
+    color: #707070;
+}
+
+.fontCommonSmallV1 {
+    font-weight: normal;
+    font-size: 90%;
+}
+
+.fontBoldMedium {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.fontBoldMoreMedium {
+    font-weight: bold;
+    font-size: 38px;
+}
+
+.fontBoldBig {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.fontBoldSmall {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.fontBoldMiniSmall {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.fontBoldVeryMiniSmall {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.fontRegularMedium {
+    font-weight: normal;
+    font-size: 20px;
+}
+
+.fontRegularSmall {
+    font-weight: normal;
+    font-size: 17px;
+}
+
+.fontAvgerageBold {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.fontRegularVSmall {
+    font-weight: normal;
+    font-size: 15px;
+}
+
+.fontCommonSmallV1 {
+    font-weight: normal;
+    font-size: 90%;
+}
+
+.fontRegularMiniSmall {
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.fontSemiBoldSmall {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.fontCustomSmall {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+i.commonFaFaFeatures {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+i.commonSmallFaFaFeatures {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.button {
+    background-color: white;
+    /* Green */
+    border: none;
+    color: black;
+    padding: 2%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 90%;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.button2:disabled {
+    cursor: not-allowed;
+}
+
+.button1 {
+    color: black;
+    background-color: white;
+    border: 2px solid #a4a4a4;
+}
+
+.button1:disabled {
+    cursor: not-allowed;
+}
+
+.btn-primary:disabled {
+    cursor: not-allowed;
+}
+
+.button1:hover {
+    color: white;
+    background-color: #0e76a8;
+}
+
+input {
+    width: 100%;
+    border-radius: 13px;
+    padding: 13px;
+    border: darkgray;
+    background-color: #f5f5f5;
+}
+
+@media only screen and (max-width: 800px) {
+    img.block {
+        /*display:none;*/
+        width: 54%;
+        height: 14%;
+    }
+}
+
+@media only screen and (min-width: 801px) {
+    img.block {
+        width: 15%;
+        height: 15%;
+    }
+}
+
+.block {
+    cursor: pointer;
+}
+
+.navbar {
+    background-color: #0e76a8;
+}
