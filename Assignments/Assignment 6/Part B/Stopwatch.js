@@ -12,6 +12,10 @@ window.onload = () => {
         min = Math.floor((totalSec - hr * 3600) / 60);
         sec = totalSec - (hr * 3600 + min * 60);
 
+        hr = hr < 10 ? '0' + hr : hr;
+        min = min < 10 ? '0' + min : min;
+        sec = sec < 10 ? '0' + sec : sec;
+
         document.getElementById("hr").innerHTML = hr + ":";
         document.getElementById("min").innerHTML = min + ":";
         document.getElementById("sec").innerHTML = sec;
@@ -29,9 +33,9 @@ window.onload = () => {
 
     document.getElementById('btn-reset').addEventListener('click', () => {
         totalSec = 0;
-        document.getElementById("hr").innerHTML = '0:';
-        document.getElementById("min").innerHTML = '0:';
-        document.getElementById("sec").innerHTML = '0';
+        document.getElementById("hr").innerHTML = '00:';
+        document.getElementById("min").innerHTML = '00:';
+        document.getElementById("sec").innerHTML = '00';
         if (setIntervalId)
             clearInterval(setIntervalId);
     });
