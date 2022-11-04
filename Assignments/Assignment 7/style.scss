@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
+@function add-numbers($first-number, $second-number) {
+    @return $first-number +$second-number
+}
+
 $primary-color: #05386b;
 $tertiary-color: #edf5e1;
 $overlay-color: rgba(255, 255, 255, 0.9);
@@ -44,10 +48,6 @@ $white-color: #fff;
 
 %placeholder2 {
     text-decoration: none;
-}
-
-@function add-numbers($first-number, $second-number) {
-    @return $first-number +$second-number
 }
 
 body {
@@ -409,6 +409,7 @@ ul {
 ::-webkit-scrollbar-thumb {
     background: #444;
     @include interpolation("radius", 50px);
+
     &:hover {
         background: #555;
     }
