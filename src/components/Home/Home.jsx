@@ -5,6 +5,7 @@ import College from "./Sections/College/College";
 import Competitions from "./Sections/Competitions/Competitions";
 import Events from "./Sections/Events/Events";
 import Sliders from "./Sections/Slider/Slider";
+import Download from "./Sections/Download/Download";
 const Home = () => {
   return (
     <section className="main_sec home_page">
@@ -13,6 +14,7 @@ const Home = () => {
       <College />
       <Events />
       <Competitions />
+      <Download />
       <Sliders />
     </section>
   );

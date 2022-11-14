@@ -3115,7 +3115,7 @@ form.login_form,
     width: 10rem;
     height: 10rem;
     right: 2rem;
-    top: -2.5rem;
+    top: 18rem;
   }
 
   .app_img_right .svg4 {
@@ -3133,7 +3133,7 @@ form.login_form,
   .home_section3 .svg5 {
     left: 10rem;
     width: 18rem;
-    top: -13rem;
+    top: 3rem;
   }
 
   .home_section3 .app_img {

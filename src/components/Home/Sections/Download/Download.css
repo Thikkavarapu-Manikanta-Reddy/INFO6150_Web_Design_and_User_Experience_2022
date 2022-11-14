@@ -1,0 +1,25 @@
+.scrollcontainer {
+    background-image: linear-gradient(90deg, #5722ff 0, #8103ff 51%, #5722ff 100%);
+}
+
+.scrollcontent {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    padding: 50px 0px 0px 100px;
+    color: white;
+    background-position: 50% 0;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../../../../public/Images/screen-4.png");
+}
+
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+    .scrollcontent {
+        background-image: none
+    }
+    .img-container img:nth-child(2) {
+        margin-top: 20px;
+    }
+}

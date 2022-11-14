@@ -76,7 +76,7 @@ const Competitions = () => {
           </div>
         </div>
       </div>
-      <Triangle />
+      {/* <Triangle /> */}
     </section>
   );
 };
