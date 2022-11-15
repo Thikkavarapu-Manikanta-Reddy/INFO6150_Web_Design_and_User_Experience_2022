@@ -1,0 +1,56 @@
+.hero {
+    background-image: url("../../../../../public/Images/bg-parallax-2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center 0px;
+    position: relative;
+    padding-top: 150px;
+    padding-bottom: 120px;
+}
+
+.hero.style-curve {
+    padding-top: 120px;
+    padding-bottom: 0;
+    height: 730px;
+    overflow: hidden;
+}
+
+.overly {
+    position: relative;
+}
+
+.grdnt-blue.overly:before {
+    background-image: -webkit-linear-gradient(90deg, #5722ff 0, #8103ff 51%, #5722ff 100%);
+    background-image: linear-gradient(90deg, #5722ff 0, #8103ff 51%, #5722ff 100%);
+}
+
+.overly:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.8;
+}
+
+.style-curve:after {
+    background: url("../../../../../public/Images/img-curve.png") bottom no-repeat;
+    z-index: 1;
+}
+
+[class*="bg-trans"]:before,
+[class*="style-"]:after {
+    position: absolute;
+    background-size: 100% !important;
+    content: "";
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    top: 0;
+}
+
+.main_title {
+    color: white;
+}

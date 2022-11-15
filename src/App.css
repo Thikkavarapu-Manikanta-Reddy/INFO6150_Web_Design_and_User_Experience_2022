@@ -612,7 +612,7 @@ section.main_sec {
 .app_img .circle_46 {
   bottom: 6rem;
   right: 10.5rem;
-  background: #78c8ec;
+  background: #2bdf73;
 }
 
 section.home_section1 .circle_22 {
@@ -644,6 +644,7 @@ section.home_section1 .circle_22 {
 
 .about_app {
   padding-top: 5rem;
+  color: white;
 }
 
 /*Home Section 2*/
@@ -1113,7 +1114,7 @@ footer a {
 /* svgs */
 
 .aa {
-  fill: #6d6bdb;
+  fill: #f9946e;
 }
 
 .track {
@@ -2029,7 +2030,7 @@ form.login_form,
   .app_img .svg1 {
     width: 29rem;
     z-index: 1;
-    left: 3.6rem;
+    left: 11rem;
     bottom: -2rem;
   }
 
