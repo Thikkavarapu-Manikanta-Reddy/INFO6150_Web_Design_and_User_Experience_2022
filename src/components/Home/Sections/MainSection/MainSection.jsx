@@ -5,10 +5,12 @@ import Triangle from "../../Triangle";
 import Google from "../../Google";
 import Typed from "react-typed";
 import './MainSection.css';
+import Header from "../Header/Header";
 
 const MainSection = () => {
   return (
     <div>
+      <Header />
       <div className="hero style-curve grdnt-blue parallaxie overly">
         <section className="home_section1">
           <div className="custom_container home_screen_section">
@@ -87,7 +89,7 @@ const MainSection = () => {
         </section>
       </div>
       <div style={{ marginTop: "100px" }} />
-      <div style={{position : "relative"}}><Triangle /></div>
+      <div style={{ position: "relative" }}><Triangle /></div>
     </div>
   );
 };

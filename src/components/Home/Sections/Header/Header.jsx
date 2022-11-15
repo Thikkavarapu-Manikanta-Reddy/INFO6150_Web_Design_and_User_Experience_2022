@@ -4,11 +4,12 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import { Button, TextField } from "@material-ui/core";
-import { SwipeableDrawer } from "@material-ui/core";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Google from "../../Google";
-import Modal from "@material-ui/core/Modal";
-import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@mui/material/Modal";
+import { makeStyles } from "@mui/styles";
 import Zoom from "react-reveal/Zoom";
 import MenuIcon from "@mui/icons-material/Menu";
 import './Header.css';
@@ -17,10 +18,10 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     width: 400,
     margin: "20% auto",
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: "pink",
     border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    // boxShadow: theme.shadows[5],
+    // padding: theme.spacing(2, 4, 3),
   },
 }));
 
