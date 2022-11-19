@@ -11,7 +11,7 @@ const navigate = useNavigate();
             <nav className="nav-desk">
                 <center>
                     <div className="nav-logo">
-                        <a><img onClick={() => navigate('/home')} style={{width: "7%", height: "7%", float: "left", cursor: "pointer"}} id="logo" src="images/letter-m.png" /></a>
+                        <a><img onClick={() => navigate('/home')} style={{width: "7%", height: "7%", float: "left", cursor: "pointer"}} id="logo" src="images/letter-g.png" /></a>
                     </div>
                     <div className="nav-items">
                         <ul>

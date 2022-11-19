@@ -6,6 +6,7 @@ function Jobs() {
   return (
     <div>
       <Navbar title="jobs" />
+      
     </div>
   )
 }

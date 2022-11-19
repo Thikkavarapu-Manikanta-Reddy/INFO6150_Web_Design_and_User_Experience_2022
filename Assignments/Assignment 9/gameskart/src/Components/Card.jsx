@@ -1,10 +1,15 @@
-import React from 'react'
+import React from 'react';
+import "./Card.css";
 
 function Card(props) {
   return (
     <div >
-        <img src={props.src} alt="pic" width="250" height="250" className='mt-5 ms-5' />
-        <span className="ms-5 mt-5">{props.title}</span>
+      <div className="gallery">
+        <img src={`images/` + props.src} alt="Mountains" width="250" height="250" />
+        <div className="desc">
+          <h4>{props.title}</h4><button className="add">ADD TO CART</button>
+        </div>
+      </div>
     </div>
   )
 }

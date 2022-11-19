@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.add {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+.add:hover {
+  background-color: #DC143C;
+}
