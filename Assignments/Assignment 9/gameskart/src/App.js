@@ -126,7 +126,6 @@ function App() {
   return (
     <>
       <div id="headerView">
-        
         <Routes>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
@@ -167,7 +166,7 @@ function App() {
               Please enter valid password. Password is wrong
             </div>
 
-            <button onClick={login}>Login</button>
+            <button className="add" onClick={login}>Login</button>
           </form>
         </div>
       </div>

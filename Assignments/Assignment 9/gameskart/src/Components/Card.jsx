@@ -4,10 +4,10 @@ import "./Card.css";
 function Card(props) {
   return (
     <div >
-      <div className="gallery">
-        <img src={`images/` + props.src} alt="Mountains" width="250" height="250" />
+      <div style={{height: props.galleryStyle}} className="gallery">
+        <img src={`images/` + props.src} style={{height: props.imageStyle}} alt="Mountains" width="250" height="250" />
         <div className="desc">
-          <h4>{props.title}</h4><button className="add">ADD TO CART</button>
+          <h4>{props.title}</h4><button className="add">{props.buttonText}</button>
         </div>
       </div>
     </div>

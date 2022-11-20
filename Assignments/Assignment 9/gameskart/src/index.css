@@ -21,3 +21,8 @@ code {
 .add:hover {
   background-color: #DC143C;
 }
+
+.games-container {
+  display: flex;
+  flex-wrap: wrap;
+}

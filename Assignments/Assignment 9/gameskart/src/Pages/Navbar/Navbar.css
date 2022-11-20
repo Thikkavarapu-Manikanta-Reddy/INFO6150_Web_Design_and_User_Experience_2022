@@ -140,7 +140,7 @@
   .menu-wrap .menu>div {
       background: var(--overlay-color);
       width: 200vw;
-      height: 200vw;
+      height: 220vw;
       display: flex;
       flex: none;
       align-items: center;

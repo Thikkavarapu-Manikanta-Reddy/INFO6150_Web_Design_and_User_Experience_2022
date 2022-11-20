@@ -56,11 +56,6 @@ div.games-title {
     -ms-transform: translate(-50%, -50%);
 }
 
-.games-container {
-    display: flex;
-    flex-wrap: wrap;
-}
-
 #customers {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;

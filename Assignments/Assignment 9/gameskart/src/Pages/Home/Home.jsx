@@ -43,8 +43,6 @@ function Home() {
                 GameShop
             </div>
 
-            <div className="detroit" style={{ backgroundColor: 'url("images/Detroit-Become-Human.jpg")' }}></div>
-            <br /><br />
             <div className="games-title">
                 <h1>TOP SELLERS</h1>
             </div>
@@ -53,12 +51,15 @@ function Home() {
                     key={imageUrl.id}
                     src={imageUrl.url}
                     title={imageUrl.title}
+                    buttonText="ADD TO CART"
+                    imageStyle="auto"
+                    galleryStyle="auto"
                 />))}
             </div>
             <div>
                 <br />
                 <div style={{ textAlign: 'center' }}>
-                    <h4>Upcoming Halloween Games</h4>
+                    <h4>Upcoming Christmas Games</h4>
                     {/* <hr style={{ width: '50%' }} /> */}
                 </div>
 

@@ -34,9 +34,9 @@ const navigate = useNavigate();
                         <div>
                             <ul>
                                 <li><a onClick={() => navigate('/home')} className={title == "home" ? "strikeOff" : null}>Home</a></li>
-                                <li><a onClick={() => navigate('/about')} className={title == "about" ? "strikeOff" : null}>Projects</a></li>
-                                <li><a onClick={() => navigate('/jobs')} className={title == "jobs" ? "strikeOff" : null}>Skills</a></li>
-                                <li><a onClick={() => navigate('/contact')} className={title == "contact" ? "strikeOff" : null}>Contact</a></li>
+                                <li><a onClick={() => navigate('/about')} className={title == "about" ? "strikeOff" : null}>About Us</a></li>
+                                <li><a onClick={() => navigate('/jobs')} className={title == "jobs" ? "strikeOff" : null}>Jobs</a></li>
+                                <li><a onClick={() => navigate('/contact')} className={title == "contact" ? "strikeOff" : null}>Contact Us</a></li>
                             </ul>
                         </div>
                     </div>

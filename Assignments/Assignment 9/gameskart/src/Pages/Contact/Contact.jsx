@@ -7,7 +7,7 @@ function Contact() {
   return (
     <div>
       <Navbar title="contact" />
-      <div>
+      <div style={{marginTop: "40px"}}>
         <div id="left-column">
           <h1 className="contact-title">Get In Touch.</h1>
           <p className="contact-des">Want to discuss anything with me ? <br />
