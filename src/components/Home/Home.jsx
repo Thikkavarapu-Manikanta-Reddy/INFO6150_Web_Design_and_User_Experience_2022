@@ -8,6 +8,7 @@ import Sliders from "./Sections/Slider/Slider";
 import Download from "./Sections/Download/Download";
 // import Header from "./Sections/Header/Header";
 import Footer from "./Sections/Footer/Footer";
+import Feature from "./Sections/Feature/Feature";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
         <MainSection />
         <Connect />
         <College />
+        <Feature />
         <Events />
         <Competitions />
         <Download />

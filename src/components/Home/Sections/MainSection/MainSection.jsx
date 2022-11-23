@@ -40,8 +40,12 @@ const MainSection = () => {
                   <Circle num="56" />
                 </div>
               </div>
-              <div className="col-md-6 text-center text-md-right py-4">
+              <div style={{ marginTop: '100px' }} className="col-md-6 text-center text-md-right py-4">
                 <h1 className="main_title">Making College Life Eventful</h1>
+                <h5 style={{
+                  fontFamily: '"open sans", sans-serif',
+                  fontWeight: 400
+                }} className="quaternary-color">Next generation community for students to connect, discover and reach their full potential</h5>
                 <div className="about_app animated">
                   <div
                     className="wow fadeInUp"

@@ -52,5 +52,7 @@
 }
 
 .main_title {
-    color: white;
+    color: var(--quaternary-color);
+    font-size: 3rem;
+    font-weight: 700;
 }
