@@ -16,6 +16,10 @@
     overflow: hidden;
 }
 
+.text-md-right {
+    margin-top: 100px;
+}
+
 .overly {
     position: relative;
 }
@@ -55,4 +59,19 @@
     color: var(--quaternary-color);
     font-size: 3rem;
     font-weight: 700;
+}
+
+@media only screen and (max-width: 767px) {
+    .hero.style-curve {
+        padding-top: 0px;
+        height: 900px;
+    }
+
+    .text-md-right {
+        margin-top: 50px;
+    }
+
+    .download {
+        margin-top: -25px;
+    }
 }

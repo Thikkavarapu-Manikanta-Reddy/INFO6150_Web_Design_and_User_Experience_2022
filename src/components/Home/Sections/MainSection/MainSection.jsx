@@ -40,7 +40,7 @@ const MainSection = () => {
                   <Circle num="56" />
                 </div>
               </div>
-              <div style={{ marginTop: '100px' }} className="col-md-6 text-center text-md-right py-4">
+              <div className="col-md-6 text-center text-md-right py-4">
                 <h1 className="main_title">Making College Life Eventful</h1>
                 <h5 style={{
                   fontFamily: '"open sans", sans-serif',
@@ -65,7 +65,7 @@ const MainSection = () => {
                     </h4>
                   </div>
                   <div
-                    className="wow fadeInUp"
+                    className="wow fadeInUp download"
                     data-wow-delay=".7s"
                     style={{
                       animationName: "fadeInUp",

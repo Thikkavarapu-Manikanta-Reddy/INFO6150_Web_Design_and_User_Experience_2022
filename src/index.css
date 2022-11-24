@@ -10,6 +10,7 @@ body {
   --secondary-color: #05386b;
   --tertiary-color: #edf5e1;
   --quaternary-color: white;
+  --open-sans-font-family: "open sans", sans-serif;
 }
 
 .primary-color {

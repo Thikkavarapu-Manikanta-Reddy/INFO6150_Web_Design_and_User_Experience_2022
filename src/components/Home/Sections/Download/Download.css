@@ -15,11 +15,36 @@
     background-image: url("../../../../../public/Images/screen-4.png");
 }
 
+.download-box {
+    padding: 0 150px;
+}
+
+.download-box h1 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.download-box p {
+    font-size: 1.5rem;
+    font-family: var(--open-sans-font-family);
+    font-weight: 400;
+}
+
 @media only screen and (min-width: 0px) and (max-width: 768px) {
     .scrollcontent {
-        background-image: none
+        background-image: none;
+        padding: 100px 0 320px 0;
     }
+
     .img-container img:nth-child(2) {
         margin-top: 20px;
+    }
+
+    .download-box {
+        padding: 0 0 0 30px;
+    }
+
+    .download-box h1 {
+        font-size: 2.5rem;
     }
 }

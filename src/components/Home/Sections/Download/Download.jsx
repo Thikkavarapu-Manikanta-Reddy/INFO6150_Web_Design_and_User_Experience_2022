@@ -7,7 +7,7 @@ export class Download extends Component {
             <div>
                 <div className="scrollcontainer">
                     <div className="scrollcontent">
-                        <div style={{ padding: "0 150px" }}>
+                        <div className='download-box'>
                             <h1 style={{ marginBottom: 0 }}>Get it now</h1>
                             <p>Available on all native App Store</p>
                             <div className="img-container">

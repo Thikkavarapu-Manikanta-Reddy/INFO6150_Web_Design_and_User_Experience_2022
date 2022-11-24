@@ -3085,9 +3085,9 @@ form.login_form,
     left: 23.5rem;
   }
 
-  .home_screen_section .about_app {
+  /* .home_screen_section .about_app {
     padding-top: 5rem;
-  }
+  } */
 
   .home_section2 .about_app_left {
     padding-left: 0rem;
@@ -3268,7 +3268,7 @@ form.login_form,
   }
 
   .home_section8 {
-    padding: 0rem 0rem 3rem;
+    padding: 3rem 0rem 3rem;
   }
 
   .footer_logo {

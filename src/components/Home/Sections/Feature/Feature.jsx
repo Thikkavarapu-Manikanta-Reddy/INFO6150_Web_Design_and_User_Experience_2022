@@ -5,7 +5,7 @@ function Feature() {
     return (
         <div>
             <section className="sec-pad-lg grdnt-yellow light">
-                <div className="container">
+                <div className="container-fluid">
                     <div className="row">
                         <div className="flx-container res-center-sm align-flx-center flx-off-sm row">
                             <div className="col-xs-12 col-sm-3 col-md-3 col-lg-3 res-margin-sm wow  fadeInUp animated" data-wow-duration="1s" data-wow-delay=".2s" style={{ visibility: 'visible', animationDuration: '1s', animationDelay: '0.2s', animationName: 'fadeInUp' }}>
@@ -17,7 +17,7 @@ function Feature() {
                                 </div>
                             </div>
                             <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center wow  fadeInUp animated" data-wow-duration="1s" data-wow-delay=".4s" style={{ visibility: 'visible', animationDuration: '1s', animationDelay: '0.4s', animationName: 'fadeInUp' }}>
-                                <img src="/Images/3.png" alt="image" />
+                                <img className="feature-img" src="/Images/3.png" alt="image" />
                             </div>
                             <div className="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-md-offset-1 col-sm-4">
                                 <div className="right-dir-col wow  fadeInUp animated" data-wow-duration="1s" data-wow-delay=".6s" style={{ visibility: 'visible', animationDuration: '1s', animationDelay: '0.6s', animationName: 'fadeInUp' }}>
@@ -40,7 +40,7 @@ function Feature() {
                                             <i className="icon-md fa fa-certificate"></i>
                                             <div className="text"><h5>Discover your passion</h5><p>Connect on shared interests skills, &amp; support each other.</p></div>
                                         </div>
-                                        <div className="spce"></div>
+                                        {/* <div className="spce"></div> */}
                                     </div>
                                 </div>
                             </div>
