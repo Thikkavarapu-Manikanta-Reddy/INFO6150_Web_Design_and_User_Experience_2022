@@ -28,6 +28,8 @@ function Header(props) {
     const a2Ref = useRef();
     const a3Ref = useRef();
     const a4Ref = useRef();
+    const a5Ref = useRef();
+    const a6Ref = useRef();
 
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -55,6 +57,8 @@ function Header(props) {
                     a2Ref.current.style.color = "var(--primary-color)";
                     a3Ref.current.style.color = "var(--primary-color)";
                     a4Ref.current.style.color = "var(--primary-color)";
+                    a5Ref.current.style.color = "var(--primary-color)";
+                    a6Ref.current.style.color = "var(--primary-color)";
                     // $(".nav_item").before(function () {
                     //     $(this).css("color", "var(--primary-color)");
                     // });
@@ -67,6 +71,8 @@ function Header(props) {
                     a2Ref.current.style.color = "var(--tertiary-color)";
                     a3Ref.current.style.color = "var(--tertiary-color)";
                     a4Ref.current.style.color = "var(--tertiary-color)";
+                    a5Ref.current.style.color = "var(--tertiary-color)";
+                    a6Ref.current.style.color = "var(--tertiary-color)";
                     // $(".nav_item").before(function () {
                     //     $(this).css("color", "var(--tertiary-color)");
                     // });
@@ -122,25 +128,37 @@ function Header(props) {
                             initial={{ y: -100 }} animate={{ y: 0 }} transition={{ delay: 0.6 }}
                             className={`nav_item push_right`}
                         >
-                            <a ref={a1Ref} href="#about">About</a>
+                            <a ref={a1Ref} href="#connect">Connect</a>
                         </motion.li>
                         <motion.li
                             initial={{ y: -100 }} animate={{ y: 0 }} transition={{ delay: 0.7 }}
                             className={`nav_item`}
                         >
-                            <a ref={a2Ref} href="#experience">Experience</a>
+                            <a ref={a2Ref} href="#college">College</a>
                         </motion.li>
                         <motion.li
                             initial={{ y: -100 }} animate={{ y: 0 }} transition={{ delay: 0.8 }}
                             className={`nav_item`}
                         >
-                            <a ref={a3Ref} href="#projects">Projects</a>
+                            <a ref={a3Ref} href="#features">Features</a>
                         </motion.li>
                         <motion.li
                             initial={{ y: -100 }} animate={{ y: 0 }} transition={{ delay: 0.9 }}
                             className={`nav_item`}
                         >
-                            <a ref={a4Ref} href="#contact">Contact</a>
+                            <a ref={a4Ref} href="#events">Events</a>
+                        </motion.li>
+                        <motion.li
+                            initial={{ y: -100 }} animate={{ y: 0 }} transition={{ delay: 1.0 }}
+                            className={`nav_item`}
+                        >
+                            <a ref={a5Ref} href="#competitions">Competitions</a>
+                        </motion.li>
+                        <motion.li
+                            initial={{ y: -100 }} animate={{ y: 0 }} transition={{ delay: 1.1 }}
+                            className={`nav_item`}
+                        >
+                            <a ref={a6Ref} href="#download">Download</a>
                         </motion.li>
                     </ul>
                 </nav>

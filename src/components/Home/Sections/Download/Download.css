@@ -30,7 +30,17 @@
     font-weight: 400;
 }
 
+@media only screen and (min-width: 800px) {
+    .img-container {
+        display: inline-flex;
+    }
+}
+
 @media only screen and (min-width: 0px) and (max-width: 768px) {
+    .img-container {
+        display: block;
+    }
+
     .scrollcontent {
         background-image: none;
         padding: 100px 0 320px 0;

@@ -4,7 +4,7 @@ import "./Download.css";
 export class Download extends Component {
     render() {
         return (
-            <div>
+            <section id="download">
                 <div className="scrollcontainer">
                     <div className="scrollcontent">
                         <div className='download-box'>
@@ -17,7 +17,7 @@ export class Download extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         )
     }
 }

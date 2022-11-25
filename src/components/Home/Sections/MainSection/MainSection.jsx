@@ -11,20 +11,32 @@ const MainSection = () => {
   const propsObj = {
     "navLinks": [
       {
-        "name": "About",
-        "url": "#about"
+        "name": "Connect",
+        "url": "#connect"
       },
       {
-        "name": "Experience",
-        "url": "#experience"
+        "name": "College",
+        "url": "#college"
       },
       {
         "name": "Projects",
         "url": "#projects"
       },
       {
-        "name": "Contact",
-        "url": "#contact"
+        "name": "Features",
+        "url": "#features"
+      },
+      {
+        "name": "Events",
+        "url": "#events"
+      },
+      {
+        "name": "Competitions",
+        "url": "#competitions"
+      },
+      {
+        "name": "Download",
+        "url": "#download"
       }
     ],
     "tertiary_color": "var(--tertiary_color)"

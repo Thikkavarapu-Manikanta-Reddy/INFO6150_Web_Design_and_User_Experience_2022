@@ -35,7 +35,7 @@ export const Sidebar = styled.aside`
     list-style: none;
     width: 100%;
     li {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       position: relative;
       margin: 0 auto 20px;
       @media (max-width: 799px) {
