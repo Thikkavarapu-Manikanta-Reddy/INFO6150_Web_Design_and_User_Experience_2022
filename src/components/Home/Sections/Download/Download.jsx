@@ -11,8 +11,8 @@ export class Download extends Component {
                             <h1 style={{ marginBottom: 0 }}>Get it now</h1>
                             <p>Available on all native App Store</p>
                             <div className="img-container">
-                                <img src="/Images/is-badge.png" />&nbsp;&nbsp;
-                                <img src="/Images/an-badge.png" />
+                                <img style={{ margin: 'none' }} src="/Images/is-badge.png" />&nbsp;&nbsp;
+                                <img style={{ margin: 'none' }} src="/Images/an-badge.png" />
                             </div>
                         </div>
                     </div>

@@ -8,9 +8,30 @@ import './MainSection.css';
 import Header from "../Header/Header";
 
 const MainSection = () => {
+  const propsObj = {
+    "navLinks": [
+      {
+        "name": "About",
+        "url": "#about"
+      },
+      {
+        "name": "Experience",
+        "url": "#experience"
+      },
+      {
+        "name": "Projects",
+        "url": "#projects"
+      },
+      {
+        "name": "Contact",
+        "url": "#contact"
+      }
+    ],
+    "tertiary_color": "var(--tertiary_color)"
+  }
   return (
     <div>
-      <Header />
+      <Header {...propsObj} />
       <div className="hero style-curve grdnt-blue parallaxie overly">
         <section className="home_section1">
           <div className="custom_container home_screen_section">
@@ -20,7 +41,7 @@ const MainSection = () => {
                   <Circle num="254" />
                   <Circle num="24" />
                   <Circle num="56" />
-                  <Images src="/Images/mockup_college_feed.png" />
+                  <Images src="/Images/mockup_college_feed.png" classes="feature_model" />
                   <div className="svg1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +66,7 @@ const MainSection = () => {
                 <h5 style={{
                   fontFamily: '"open sans", sans-serif',
                   fontWeight: 400
-                }} className="quaternary-color">Next generation community for students to connect, discover and reach their full potential</h5>
+                }} className="tertiary-color">Next generation community for students to connect, discover and reach their full potential</h5>
                 <div className="about_app animated">
                   <div
                     className="wow fadeInUp"

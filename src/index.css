@@ -7,9 +7,10 @@ body {
 
 :root {
   --primary-color:#5722ff;
-  --secondary-color: #05386b;
-  --tertiary-color: #edf5e1;
-  --quaternary-color: white;
+  --secondary-color: #6d6bdb;
+  --tertiary-color: white;
+  --wrapper-lg-side-padding: 1.5em;
+  --wrapper-sm-side-padding: 1.5rem;
   --open-sans-font-family: "open sans", sans-serif;
 }
 
@@ -18,13 +19,9 @@ body {
 }
 
 .secondary-color {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .tertiary-color {
   color: var(--tertiary-color);
-}
-
-.quaternary-color {
-  color: var(--quaternary-color);
 }
