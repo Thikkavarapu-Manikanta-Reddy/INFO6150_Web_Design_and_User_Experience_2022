@@ -6,13 +6,14 @@ import LazyLoader from './components/LazyLoader/LazyLoader';
 function App() {
 
   const Home = lazy(() => import('./components/Home/Home'));
+  const Login = lazy(() => import('./components/Login/Login'));
   const NotFound = lazy(() => import('./components/NotFound/NotFound'));
 
   return (
     <Suspense fallback={LazyLoader()}>
     <Routes>
       <Route exact path="/" element={<Home />} />
-      <Route exact path="/home" element={<Home />} />
+      <Route exact path="/login" element={<Login />} />
       <Route element={<NotFound />} />
     </Routes>
   </Suspense>

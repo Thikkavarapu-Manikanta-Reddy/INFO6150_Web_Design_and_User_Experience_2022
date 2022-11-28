@@ -4,12 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { Fonts } from "./fonts";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const theme = extendTheme({
+  fonts: {
+    body: "Josefin Sans",
+  },
+})
 root.render(
   // <React.StrictMode>
-  <ChakraProvider>
+  <ChakraProvider theme={theme}>
+    <Fonts />
     <Router>
       <App />
     </Router>

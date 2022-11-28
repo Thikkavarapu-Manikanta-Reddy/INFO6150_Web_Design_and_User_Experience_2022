@@ -13,10 +13,13 @@ import { useAnimation, motion } from 'framer-motion';
 import "./Header.scss";
 import logo1 from "../../../../letter-e.png";
 import $ from "jquery";
+import { useNavigate } from 'react-router-dom';
 
 function Header(props) {
 
     const [y, setY] = useState(null);
+
+    const navigate = useNavigate();
 
     const [logoImage, setlogoImage] = useState(logo1);
     const [hamburgerColor, setHamburgerColor] = useState(false);
@@ -30,6 +33,7 @@ function Header(props) {
     const a4Ref = useRef();
     const a5Ref = useRef();
     const a6Ref = useRef();
+    const a7Ref = useRef();
 
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -45,6 +49,10 @@ function Header(props) {
         });
     }
 
+    const goToLogin = () => {
+        navigate('/login');
+    };
+
     const handleNavigation = useCallback(
         (e) => {
             const window = e.currentTarget;
@@ -59,6 +67,7 @@ function Header(props) {
                     a4Ref.current.style.color = "var(--primary-color)";
                     a5Ref.current.style.color = "var(--primary-color)";
                     a6Ref.current.style.color = "var(--primary-color)";
+                    a7Ref.current.style.color = "var(--primary-color)";
                     // $(".nav_item").before(function () {
                     //     $(this).css("color", "var(--primary-color)");
                     // });
@@ -73,6 +82,7 @@ function Header(props) {
                     a4Ref.current.style.color = "var(--tertiary-color)";
                     a5Ref.current.style.color = "var(--tertiary-color)";
                     a6Ref.current.style.color = "var(--tertiary-color)";
+                    a7Ref.current.style.color = "var(--tertiary-color)";
                     // $(".nav_item").before(function () {
                     //     $(this).css("color", "var(--tertiary-color)");
                     // });
@@ -159,6 +169,12 @@ function Header(props) {
                             className={`nav_item`}
                         >
                             <a ref={a6Ref} href="#download">Download</a>
+                        </motion.li>
+                        <motion.li
+                            initial={{ y: -100 }} animate={{ y: 0 }} transition={{ delay: 1.2 }}
+                            className={`nav_item`}
+                        >
+                            <a ref={a7Ref} onClick={goToLogin}>Login</a>
                         </motion.li>
                     </ul>
                 </nav>
