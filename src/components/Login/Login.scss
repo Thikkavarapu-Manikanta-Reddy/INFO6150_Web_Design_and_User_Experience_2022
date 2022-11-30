@@ -1,0 +1,74 @@
+input {
+    width: 100%;
+    border-radius: 13px;
+    padding: 13px;
+    border: darkgray;
+    background-color: #F5F5F5;
+}
+
+.button {
+    background-color: white;
+    /* Green */
+    border: none;
+    color: black;
+    padding: 2%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 150%;
+    cursor: pointer;
+    border-radius: 13px;
+    width: 100%;
+}
+
+.button1 {
+    background-color: #004b79;
+    color: white;
+    border: 2px solid #A4A4A4;
+}
+
+.button1:disabled {
+    cursor: not-allowed;
+}
+
+.button1:hover {
+    color: #004b79;
+    background-color: white;
+    border: 2px solid #004b79;
+}
+
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2;
+    cursor: pointer;
+}
+
+div.login {
+    border-style: solid;
+    border-color: #eeeeee;
+    border-radius: 5px;
+    padding: 40px;
+    margin: 0px 0px 0px 0px;
+}
+
+img.imageSize {
+    width: 65%;
+    height: 65%;
+}
+
+.enableButtonColors {
+    background-color: #004b79;
+    color: #FFFFFF
+}
+
+.enableButtonColors:hover {
+    background-color: #004b79;
+    color: #FFFFFF
+}
