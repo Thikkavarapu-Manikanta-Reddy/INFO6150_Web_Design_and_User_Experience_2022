@@ -42,7 +42,12 @@ html,
 body,
 #root {
   font      : 0.9rem sans-serif;
-  background: linear-gradient(90deg, rgb(249, 157, 149) 20%, rgb(218, 107, 115) 50%, rgb(207, 99, 103) 100%);
+  background: linear-gradient(
+    90deg,
+    #5722ff 0,
+    #8103ff 51%,
+    #5722ff 100%
+  );
   color     : #1e2432;
   height    : 100%;
   margin    : 0;
@@ -136,7 +141,7 @@ p {
 
 .leftbg {
   text-align         : center;
-  background-image   : url(https://images.unsplash.com/photo-1559060017-445fb9722f2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+  background-image   : url("./images/undraw_weather_re_qsmd.svg");
   background-position: center center;
   background-repeat  : no-repeat;
   background-size    : cover;
@@ -207,7 +212,7 @@ p {
 }
 
 .rightbg {
-  background: linear-gradient(90deg, rgb(249, 157, 149) 20%, rgb(218, 107, 115) 50%, rgb(207, 99, 103) 100%)
+  background: white
 }
 
 .text-white {
