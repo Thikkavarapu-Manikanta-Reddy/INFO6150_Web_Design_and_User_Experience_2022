@@ -1,14 +1,15 @@
-import React, { lazy, Suspense } from 'react';
-import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import LazyLoader from './components/LazyLoader/LazyLoader';
+import React, { lazy, Suspense } from "react";
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import LazyLoader from "./components/LazyLoader/LazyLoader";
+import LoginLayout from "./components/Login/LoginLayout";
+import RegistrationPage from "./components/Login/RegistrationPage";
 
 function App() {
-
-  const Home = lazy(() => import('./components/Home/Home'));
-  const Login = lazy(() => import('./components/Login/Login'));
-  const Signup = lazy(() => import('./components/Signup/Signup'));
-  const NotFound = lazy(() => import('./components/NotFound/NotFound'));
+  const Home = lazy(() => import("./components/Home/Home"));
+  const Login = lazy(() => import("./components/Login/Login"));
+  const Signup = lazy(() => import("./components/Signup/Signup"));
+  const NotFound = lazy(() => import("./components/NotFound/NotFound"));
 
   return (
     <Suspense fallback={LazyLoader()}>
