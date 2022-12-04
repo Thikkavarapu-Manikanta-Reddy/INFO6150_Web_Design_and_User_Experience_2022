@@ -16,25 +16,6 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
-        {/* <Route
-          exact
-          path="/registration"
-          element={
-            <LoginLayout>
-              <RegistrationPage />
-            </LoginLayout>
-          }
-        ></Route>
-
-        <Route
-          exact
-          path="*"
-          element={
-            <LoginLayout>
-              <Login />
-            </LoginLayout>
-          }
-        ></Route> */}
         <Route exact path="/signup" element={<Signup />} />
         <Route element={<NotFound />} />
       </Routes>
