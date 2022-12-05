@@ -14,6 +14,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { InputLabel, MenuItem, Select } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import "./Signup.scss";
 
@@ -25,6 +26,8 @@ const payload = {
   confirmPassword: "",
   university: "",
 };
+=======
+>>>>>>> 7de782be9393440ee9fea17744cb1f65370a2eea
 
 function Copyright(props) {
   return (
@@ -47,7 +50,10 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+<<<<<<< HEAD
   const [values, setValues] = useState(payload);
+=======
+>>>>>>> 7de782be9393440ee9fea17744cb1f65370a2eea
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -114,6 +120,7 @@ export default function SignUp() {
               onSubmit={handleSubmit}
               sx={{ mt: 3 }}
             >
+<<<<<<< HEAD
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -217,6 +224,15 @@ export default function SignUp() {
                     Already have an account? Sign in
                   </Link>
                 </Grid>
+=======
+              Sign Up
+            </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link style={{cursor: "pointer"}} onClick={() => navigate("/login")} variant="body2">
+                  Already have an account? Sign in
+                </Link>
+>>>>>>> 7de782be9393440ee9fea17744cb1f65370a2eea
               </Grid>
             </Box>
           </Box>
