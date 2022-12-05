@@ -1,9 +1,9 @@
 const bcrypt = require('bcrypt');
-const loginServices = require('../services/loginServices');
-const loginUserModel = require('../model/loginUserModel');
+const signupServices = require('../services/signupServices');
+const signupUserModel = require('../model/signupUserModel');
 const validator = require('../utilities/Validator');
 
-const login = (req, res) => {
+const signup = (req, res) => {
     try {
 
     }
@@ -13,4 +13,4 @@ const login = (req, res) => {
     }
 }
 
-module.exports = { login };
+module.exports = { signup };
