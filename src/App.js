@@ -17,10 +17,9 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/redirect" element={<Navigate replace to="/signup" />} />
         <Route exact path="/signup" element={<Signup />} />
-        <Route exact path="/dashboard">
-          <Dashboard>
-            <NotFound />
-          </Dashboard>
+        <Route exact path="/dashboard" element={<Dashboard>
+          <NotFound />
+        </Dashboard>}>
         </Route>
         <Route element={<NotFound />} />
       </Routes>
