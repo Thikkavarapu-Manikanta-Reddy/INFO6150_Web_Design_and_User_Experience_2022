@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt');
 const User = require('../model/loginUserModel');
 
 router.post('/loginUser',async(req, res)=> {
-    //loginController.loginUser
+    loginController.loginUser
     console.log("inside routes")
 
     try {
@@ -31,14 +31,6 @@ router.post('/loginUser',async(req, res)=> {
                 status: 200,
             })
         })
-
-       /* userService.createUser(user).then(result => {
-            if (result != null)
-                res.json("User created Successfully");
-        }).catch(err => {
-            res.status(400);
-            res.json({ "message": err.message });
-        });*/
     }
 
 
