@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import LazyLoader from "./components/LazyLoader/LazyLoader";
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
+        <Route exact path="/redirect"  element={ <Navigate replace to="/signup" /> } />
         <Route exact path="/signup" element={<Signup />} />
         <Route element={<NotFound />} />
       </Routes>
