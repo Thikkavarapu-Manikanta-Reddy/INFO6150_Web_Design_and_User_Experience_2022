@@ -38,7 +38,7 @@ function Login() {
                                 <button className="button button1" type="button" disabled={emaiId === '' || password === ''}>
                                     <span className="fontBoldMiniSmall">Login</span></button><br /><br />
                                 <p className="smallTextColor fontRegularSmall">Don't have an account ?</p>
-                                <button onClick={() => navigate("/signup")} style={{ color: "#069", textDecoration: "underline", cursor: "pointer", background: "none", border: "none", padding: "0" }}>SignUp</button>
+                                <button onClick={() => navigate("/redirect")} style={{ color: "#069", textDecoration: "underline", cursor: "pointer", background: "none", border: "none", padding: "0" }}>SignUp</button>
                                 <br /><br />
                             </form>
                         </div>
