@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
 
-    const [MobileNumber, setMobileNumber] = useState('');
-    const [OTP, setOTP] = useState('');
+    const [emaiId, setEmailId] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -28,17 +28,17 @@ function Login() {
                             <h5 className="smallTextColor fontRegularSmall">Welcome !</h5>
                             <h5 className="primaryColor fontBoldSmall">Login/SignUp</h5><br />
                             <form>
-                                <input placeholder="MobileNumber*" type="number" value={MobileNumber} onChange={e => {
-                                    setMobileNumber(e.target.value);
+                                <input placeholder="Email Id*" type="email" value={emaiId} onChange={e => {
+                                    setEmailId(e.target.value);
                                 }} />
                                 <br /><div style={{ marginTop: "15px" }} />
-                                <input placeholder="OTP*" type="number" value={OTP} onChange={e => {
-                                    setOTP(e.target.value);
+                                <input placeholder="Password*" type="text" value={password} onChange={e => {
+                                    setPassword(e.target.value);
                                 }} /><br /><br />
-                                <button className="button button1" type="button" disabled={MobileNumber === '' || MobileNumber.length !== 10 || OTP === ''}>
+                                <button className="button button1" type="button" disabled={emaiId === '' || password === ''}>
                                     <span className="fontBoldMiniSmall">Login</span></button><br /><br />
                                 <p className="smallTextColor fontRegularSmall">Don't have an account ?</p>
-                                <button style={{ color: "#069", textDecoration: "underline", cursor: "pointer", background: "none", border: "none", padding: "0" }}>SignUp</button>
+                                <button onClick={() => navigate("/signup")} style={{ color: "#069", textDecoration: "underline", cursor: "pointer", background: "none", border: "none", padding: "0" }}>SignUp</button>
                                 <br /><br />
                             </form>
                         </div>
