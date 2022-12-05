@@ -23,6 +23,7 @@ const payload = {
   email: "",
   password: "",
   confirmPassword: "",
+  university: "",
 };
 
 function Copyright(props) {
@@ -60,19 +61,28 @@ export default function SignUp() {
       confirmPassword: data.get("confirmPassword"),
       // university: "NEU",
     };
-    console.log(payload);
+    console.log(payloadOld);
+
+    console.log("state =>", values);
 
     return fetch("http://localhost:8000/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(payloadOld),
+      body: JSON.stringify(values),
     })
       .then((data) => data.json())
       .then((data) => {
         console.log(data);
       });
+  };
+
+  const handleChange = (event) => {
+    setValues({
+      ...values,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const goToLogin = () => {
@@ -109,11 +119,13 @@ export default function SignUp() {
                   <TextField
                     autoComplete="given-name"
                     name="firstName"
+                    value={values.firstName}
                     required
                     fullWidth
                     id="firstName"
                     label="First Name"
                     autoFocus
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -123,7 +135,9 @@ export default function SignUp() {
                     id="lastName"
                     label="Last Name"
                     name="lastName"
+                    value={values.lastName}
                     autoComplete="family-name"
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -133,7 +147,9 @@ export default function SignUp() {
                     id="email"
                     label="Email Address"
                     name="email"
+                    value={values.email}
                     autoComplete="email"
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -141,10 +157,12 @@ export default function SignUp() {
                     required
                     fullWidth
                     name="password"
+                    value={values.password}
                     label="Password"
                     type="password"
                     id="password"
                     autoComplete="new-password"
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -152,10 +170,12 @@ export default function SignUp() {
                     required
                     fullWidth
                     name="confirmPassword"
+                    value={values.confirmPassword}
                     label="Confirm Password"
                     type="password"
                     id="confirmPassword"
                     autoComplete="new-password"
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -169,6 +189,7 @@ export default function SignUp() {
                     placeholder="Choose University"
                     value={"NEU"}
                     style={{ width: "100%" }}
+                    onChange={handleChange}
                   >
                     <MenuItem value={"NEU"}>Northeastern University</MenuItem>
                   </Select>
