@@ -25,7 +25,6 @@ const payload = {
   confirmPassword: "",
   university: "",
 };
-import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
