@@ -9,12 +9,14 @@ function App() {
   const Signup = lazy(() => import("./components/Signup/Signup"));
   const NotFound = lazy(() => import("./components/NotFound/NotFound"));
   const Dashboard = lazy(() => import("./components/Dashboard/Dashboard"));
+  const Register = lazy(() => import("./components/RegisterEmail/Register"));
 
   return (
     <Suspense fallback={LazyLoader()}>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
+        <Route exact path="/registerEmail" element={<Register />} />
         <Route
           exact
           path="/redirect"

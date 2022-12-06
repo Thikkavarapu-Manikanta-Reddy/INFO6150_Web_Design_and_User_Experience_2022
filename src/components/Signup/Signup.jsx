@@ -24,7 +24,7 @@ const payload = {
   email: "",
   password: "",
   confirmPassword: "",
-  university: "",
+  university: "NEU",
 };
 
 function Copyright(props) {
