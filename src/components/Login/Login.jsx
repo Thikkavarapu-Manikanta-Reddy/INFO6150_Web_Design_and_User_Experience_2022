@@ -51,11 +51,4 @@ function Login() {
     )
 }
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById("root")
-// );
-
-export default App;
+export default React.memo(Login)
