@@ -8,7 +8,7 @@ function App() {
   const Login = lazy(() => import("./components/Login/Login"));
   const Signup = lazy(() => import("./components/Signup/Signup"));
   const NotFound = lazy(() => import("./components/NotFound/NotFound"));
-  const Dashboard = lazy(() => import("./components/Dashboard/Dashboard"));
+  const ChildRoutes = lazy(() => import("./components/ChildRoutes/ChildRoutes"));
 
   return (
     <Suspense fallback={LazyLoader()}>
@@ -17,11 +17,10 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/redirect" element={<Navigate replace to="/signup" />} />
         <Route exact path="/signup" element={<Signup />} />
-        <Route exact path="/dashboard" element={<Dashboard>
+        <Route exact path="/dashboard" element={<ChildRoutes>
           <NotFound />
-        </Dashboard>}>
-        </Route>
-        <Route element={<NotFound />} />
+        </ChildRoutes>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   );
