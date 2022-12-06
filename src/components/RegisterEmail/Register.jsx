@@ -7,6 +7,7 @@ import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import { Snackbar, Alert } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -34,9 +35,20 @@ function Copyright(props) {
 const theme = createTheme();
 
 function Register() {
-  const navigate = useNavigate();
+  const [openSuccess, setOpenSuccess] = React.useState(false);
+  const [openIncorrectOTP, setOpenIncorrectOTP] = React.useState(false);
   const form = useRef();
-  const handleSubmit = (event) => {
+  const navigate = useNavigate();
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenSuccess(false);
+  };
+
+  const handleSubmitOTP = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
@@ -59,11 +71,18 @@ function Register() {
           console.log(error.text);
         }
       );
+    setOpenSuccess(true);
     console.log(form);
+  };
 
-    if (data.get("password") == "2453") {
-      console.log("OTP matches");
+  const handleSubmit = (event) => {
+    console.log("inside handle submit");
+    const otp = document.getElementById("password").value;
+    console.log(otp);
+    if (otp === "4423") {
       navigate("/signup");
+    } else {
+      setOpenIncorrectOTP(true);
     }
   };
   return (
@@ -108,7 +127,7 @@ function Register() {
               // onSubmit={handleSubmit}
               sx={{ mt: 1 }}
             >
-              <form onSubmit={handleSubmit} ref={form}>
+              <form onSubmit={handleSubmitOTP} ref={form}>
                 <TextField
                   margin="normal"
                   required
@@ -129,24 +148,47 @@ function Register() {
                   id="password"
                   autoComplete="current-password"
                 />
-                <div className="buttonClass" style={{ display: "inline" }}>
-                  <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2, ml: 20 }}
+                >
+                  Send OTP
+                </Button>
+                <Snackbar
+                  open={openSuccess}
+                  autoHideDuration={6000}
+                  onClose={handleClose}
+                >
+                  <Alert
+                    onClose={handleClose}
+                    severity="success"
+                    sx={{ width: "100%" }}
                   >
-                    Send OTP
-                  </Button>
-                  <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
+                    OTP sent to your email ID!
+                  </Alert>
+                </Snackbar>
+                <Button
+                  //   type="submit"
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2, ml: 2 }}
+                  onClick={handleSubmit}
+                >
+                  Verify
+                </Button>
+                <Snackbar
+                  open={openIncorrectOTP}
+                  autoHideDuration={6000}
+                  onClose={handleClose}
+                >
+                  <Alert
+                    onClose={handleClose}
+                    severity="error"
+                    sx={{ width: "100%" }}
                   >
-                    Verify
-                  </Button>
-                </div>
+                    Incorrect OTP!
+                  </Alert>
+                </Snackbar>
               </form>
 
               <Copyright sx={{ mt: 5 }} />
