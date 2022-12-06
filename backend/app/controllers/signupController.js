@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const signupServices = require('../services/signupServices');
 const signupUserModel = require('../model/signupUserModel');
-const validator = require('../utilities/Validator');
+const validator = require('../utilities/Validators');
 
 const signup = (req, res) => {
     try {

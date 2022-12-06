@@ -1,5 +1,21 @@
 let Validator = {};
 
+//to validate user full name
+Validator.validateFullName = function (name) {
+    if(name == ""){
+        let err = new Error('Please enter the full name.');
+        err.status = 400;
+        throw err;
+    }
+    let check = String(name).match( /^[a-zA-Z]+[a-zA-Z ]*$/ )
+    if (!check) {
+        let err = new Error('Not a valid full name. Full Name should contain only alphabets and space.');
+        err.status = 400;
+        throw err;
+    }
+}
+
+//to validate email
 Validator.validateEmail = function (email) {
     if(email == ""){
         let err = new Error('Please enter the email.');

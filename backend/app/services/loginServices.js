@@ -1,12 +1,12 @@
-const User = require('../model/User');
+//const User = require('../model/User');
 const userdb = require('../model/loginUserModel');
-const validator = require('../utilities/validators');
+const validator = require('../utilities/Validators');
 
 const bcrypt = require('bcrypt');
 
 let loginServices = {};
 
-loginServices.createUser = (UserObj) => {
+loginServices.loginUser = (UserObj) => {
     return userdb.findUserByEmail(UserObj.email).then(object => {
         {
             if (object != null) {

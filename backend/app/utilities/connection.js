@@ -7,10 +7,6 @@ const Schema = mongoose.Schema;
 let connection = {};
 
 let schema = {
-    // "fullName": {
-    //     type: String,
-    //     required: true,
-    // },
     "email": {
         type: String,
         required: true,

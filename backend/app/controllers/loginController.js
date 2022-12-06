@@ -1,13 +1,11 @@
 const express = require('express');
 const loginServices = require('../services/loginServices');
-const router = express.Router();
-const validator = require('../utilities/validators');
-const bcrypt = require('bcrypt');
-const User = require('../model/User')
+const loginUser = require('../model/loginUser');
+//const User = require('../model/User')
+const validator = require('../utilities/Validators');
 
-const loginUser = async (req, res) => {
+const login = async(req, res) => {
     try {
-       // validator.validateFullName(req.body.fullName);
         validator.validateEmail(req.body.email);
         validator.validatePassword(req.body.password);
 
@@ -16,9 +14,10 @@ const loginUser = async (req, res) => {
 
         req.body.password = hash;
 
-        const user = new User(req.body);
+        const user = new loginUser(req.body);
 
-        loginServices.createUser(user).then(result => {
+        loginServices.loginUser(user).then(result => {
+                
             if (result != null)
                 res.json("User created Successfully");
         }).catch(err => {

@@ -2,7 +2,6 @@ const collection = require('../utilities/connection');
 
 const loginUserModel = {};
 
-//To check whether the user with email id exist or not 
 loginUserModel.findUserByEmail = (email) => {
     return collection.getUserCollection().then(model => {
         return model.findOne({ "email": email }).then((userData) => {
@@ -27,5 +26,6 @@ loginUserModel.createUser = (newUser) => {
         })
     })
 }
+
 
 module.exports = loginUserModel;
