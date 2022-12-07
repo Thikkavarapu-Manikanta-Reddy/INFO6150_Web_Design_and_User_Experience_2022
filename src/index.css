@@ -25,3 +25,57 @@ body {
 .tertiary-color {
   color: var(--tertiary-color);
 }
+
+.fontBoldMedium {
+  font-weight: bold;
+  font-size: 25px;
+}
+.fontBoldMoreMedium {
+  font-weight: bold;
+  font-size: 38px;
+}
+.fontBoldBig {
+  font-weight: bold;
+  font-size: 40px;
+}
+.fontBoldSmall {
+  font-weight: bold;
+  font-size: 20px;
+}
+.fontBoldMiniSmall {
+  font-weight: bold;
+  font-size: 15px;
+}
+.fontRegularMedium {
+  font-weight: normal;
+  font-size: 20px;
+}
+.fontRegularSmall {
+  font-weight: normal;
+  font-size: 15px;
+}
+.fontRegularMiniSmall {
+  font-weight: normal;
+  font-size: 13px;
+}
+.fontSemiBoldSmall {
+  font-weight: 600;
+  font-size: 20px;
+}
+.fontCustomSmall {
+  font-weight: 500;
+  font-size: 15px;
+}
+.floatRight {
+  float: right;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 800px)
+{
+.mobileCardCenterView {
+  text-align: center;
+}
+.floatRight {
+  float: none;
+}
+}

@@ -4,8 +4,13 @@ const LocalStorageService = (function(){
       return localStorage.getItem('token');
     }
 
+    function getUser() {
+      return localStorage.getItem('User');
+    }
+
    return {
-      getToken : getToken
+      getToken : getToken,
+      getUser: getUser
     }
    })();
 
