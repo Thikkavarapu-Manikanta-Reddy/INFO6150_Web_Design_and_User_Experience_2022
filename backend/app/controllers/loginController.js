@@ -1,34 +1,34 @@
-const express = require('express');
-const loginServices = require('../services/loginServices');
-const loginUser = require('../model/loginUser');
+const bcrypt = require("bcrypt");
+const loginServices = require("../services/loginServices");
+const loginUser = require("../model/loginUser");
+const userdb = require("../model/loginUserModel");
 //const User = require('../model/User')
-const validator = require('../utilities/Validators');
+const validator = require("../utilities/Validators");
+const { json } = require("body-parser");
 
-const login = async(req, res) => {
-    try {
-        validator.validateEmail(req.body.email);
-        validator.validatePassword(req.body.password);
+const login = async (req, res) => {
+  try {
+    console.log("inside Login func");
+    const email = req.body.email;
+    const password = req.body.password;
 
-        let salt = await bcrypt.genSalt(15);
-        let hash = await bcrypt.hash(req.body.password, salt);
+    console.log(email);
 
-        req.body.password = hash;
+    const userDataFromDb = await userdb.findUserByEmail(email);
+    console.log("userDataFromDb" + userDataFromDb);
+    if (userDataFromDb) {
+      
 
-        const user = new loginUser(req.body);
-
-        loginServices.loginUser(user).then(result => {
-                
-            if (result != null)
-                res.json("User created Successfully");
-        }).catch(err => {
-            res.status(400);
-            res.json({ "message": err.message });
-        });
+      res.json(userDataFromDb);
+      
+    } else {
+      res.json("User not found. Please signup");
     }
-    catch (err) {
-        res.status(400);
-        res.json({ "message": err.message });
-    }
-}
+  } catch (err) {
+    console.log(err);
+    res.status(400);
+    res.json({ status: "Please Register!!" });
+  }
+};
 
-module.exports = {loginUser}
+module.exports = { login };
