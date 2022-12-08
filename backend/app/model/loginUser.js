@@ -1,7 +1,9 @@
-class LoginUserModel {
-    constructor( obj ) {
-        this.email = obj.email;
-        this.password = obj.password;
-    }
+class User {
+  constructor(obj) {
+    this.fullName = obj.fullName;
+    this.email = obj.email;
+    this.password = obj.password;
+  }
 }
-module.exports = LoginUserModel;
+
+module.exports = User;
