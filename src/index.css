@@ -7,7 +7,7 @@ body {
 
 :root {
   --primary-color:#5722ff;
-  --secondary-color: #6d6bdb;
+  --secondary-color: #0e76a8;
   --tertiary-color: white;
   --wrapper-lg-side-padding: 1.5em;
   --wrapper-sm-side-padding: 1.5rem;
@@ -24,6 +24,18 @@ body {
 
 .tertiary-color {
   color: var(--tertiary-color);
+}
+
+.primary-color-background {
+  background-color: var(--primary-color);
+}
+
+.secondary-color-background {
+  background-color: var(--secondary-color);
+}
+
+.tertiary-color-background {
+  background-color: var(--tertiary-color);
 }
 
 .fontBoldMedium {
