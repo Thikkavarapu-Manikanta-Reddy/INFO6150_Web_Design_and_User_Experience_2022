@@ -12,7 +12,7 @@ function Login() {
     }, []);
 
     return (
-        <div>
+        <div className="poppinsFont">
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-xs-12 col-sm-12 col-md-1 col-lg-1"></div>

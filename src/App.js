@@ -8,7 +8,6 @@ function App() {
   const Login = lazy(() => import("./components/Login/Login"));
   const Signup = lazy(() => import("./components/Signup/Signup"));
   const NotFound = lazy(() => import("./components/NotFound/NotFound"));
-  const Dashboard = lazy(() => import("./components/Dashboard/Dashboard"));
   const Register = lazy(() => import("./components/RegisterEmail/Register"));
   const ChildRoutes = lazy(() =>
     import("./components/ChildRoutes/ChildRoutes")

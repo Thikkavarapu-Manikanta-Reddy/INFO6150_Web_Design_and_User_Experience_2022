@@ -11,6 +11,10 @@ body {
   color: #363636 !important;
 }
 
+.poppinsFont {
+  font-family: 'Poppins', sans-serif !important;
+}
+
 a:hover {
   text-decoration: none;
 }

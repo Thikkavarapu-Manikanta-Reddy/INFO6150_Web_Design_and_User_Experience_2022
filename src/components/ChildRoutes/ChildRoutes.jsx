@@ -23,7 +23,7 @@ function ChildRoutes(props) {
     }, []);
 
     return (
-        <div>
+        <div className="poppinsFont">
             {
                 loggedUser ?
                     <>
