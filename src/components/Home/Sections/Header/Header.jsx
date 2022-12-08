@@ -50,7 +50,7 @@ function Header(props) {
     }
 
     const goToLogin = () => {
-        navigate('/login');
+        // navigate('/login');
     };
 
     const handleNavigation = useCallback(
