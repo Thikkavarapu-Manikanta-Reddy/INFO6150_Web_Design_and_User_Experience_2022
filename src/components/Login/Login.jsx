@@ -1,6 +1,7 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
+import TextField from "@mui/material/TextField";
 
 function Login() {
 
@@ -28,13 +29,40 @@ function Login() {
                             <h5 className="smallTextColor fontRegularSmall">Welcome !</h5>
                             <h5 className="primaryColor fontBoldSmall">Login/SignUp</h5><br />
                             <form>
-                                <input placeholder="Email Id*" type="email" value={emaiId} onChange={e => {
+
+                                <TextField
+                                    autoComplete="given-name"
+                                    name="email"
+                                    required
+                                    fullWidth
+                                    id="email"
+                                    label="Email Id"
+                                    autoFocus
+                                    placeholder="Email Id" type="email" value={emaiId} onChange={e => {
+                                        setEmailId(e.target.value);}}
+                                />
+
+                                {/* <input placeholder="Email Id*" type="email" value={emaiId} onChange={e => {
                                     setEmailId(e.target.value);
-                                }} />
+                                }} /> */}
                                 <br /><div style={{ marginTop: "15px" }} />
-                                <input placeholder="Password*" type="text" value={password} onChange={e => {
+
+                                <TextField
+                                    autoComplete="given-name"
+                                    name="password"
+                                    required
+                                    fullWidth
+                                    id="password"
+                                    label="Password"
+                                    placeholder="Password" type="text" value={password} onChange={e => {
+                                        setPassword(e.target.value);
+                                    }}
+                                />
+
+                                {/* <input placeholder="Password*" type="text" value={password} onChange={e => {
                                     setPassword(e.target.value);
-                                }} /><br /><br />
+                                }} /> */}
+                                <br /><br />
                                 <button className="button button1" type="button" disabled={emaiId === '' || password === ''}>
                                     <span className="fontBoldMiniSmall">Login</span></button><br /><br />
                                 <p className="smallTextColor fontRegularSmall">Don't have an account ?</p>
