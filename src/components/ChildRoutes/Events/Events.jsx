@@ -8,16 +8,19 @@ import Snackbar from "../../SnackBar/SnackBar";
 import axios from '../../../configs/axiosConfig';
 import Avatar from 'react-avatar';
 import EventHost from "../EventHost/EventHost";
+import { useNavigate } from 'react-router-dom';
 
 function Events({ user }) {
+
+    const navigate = useNavigate();
 
     const addOrEditEvent = (data) => {
         setSelectedEventData(data);
         toggleEventModal();
     }
 
-    const addStudentEvent = () => {
-
+    const addStudentEvent = (data) => {
+        studentEventPost(data.id);
     }
 
     const [isEventModalOpen, setisEventModalOpen] = useState(false);
@@ -119,6 +122,42 @@ function Events({ user }) {
                     console.log(error, error.response, error.message, error.request);
                     setMessageHandler({ ...MessageHandler, message: error.response.data.message, status: false });
                     seteventDataList(null);
+                    handleClick();
+                }
+                setshowLoader(false);
+            })
+        return () => (isSubscribed = false);
+
+    }
+
+    const studentEventPost = (id) => {
+
+        let isSubscribed = true;
+
+        let payload = {
+            "id": id
+        }
+
+        setshowLoader(true);
+        axios.post('/saveStudentEvents', payload, uploadProgressOptions)
+            .then(response => {
+                console.log(response);
+                if (isSubscribed === true) {
+                    if (response.data.success === true) {
+                        setMessageHandler({ ...MessageHandler, message: response.data.message, status: true });
+                        navigate("/dashboard/booked-events");
+                    }
+                    else {
+                        setMessageHandler({ ...MessageHandler, message: response.data.message, status: false });
+                        handleClick();
+                    }
+                }
+                setshowLoader(false);
+            })
+            .catch(error => {
+                if (isSubscribed === true) {
+                    console.log(error, error.response, error.message, error.request);
+                    setMessageHandler({ ...MessageHandler, message: error.response.data.message, status: false });
                     handleClick();
                 }
                 setshowLoader(false);
