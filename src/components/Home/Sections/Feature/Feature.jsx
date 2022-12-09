@@ -36,7 +36,7 @@ function Feature() {
                                         </div>
                                         <div className="list">
                                             <div className="feature-content">
-                                                <i className="icon-md fas fa-comments"></i>
+                                                <i className="icon-md fa fa-commenting-o"></i>
                                                 <div className="text"><h5>Connect with college students</h5><p>Find like minded students and start chatting with them.</p></div>
                                             </div>
                                             <div className="spce"></div>
