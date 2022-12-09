@@ -36,10 +36,12 @@ let signupSchema = {
 
 let eventSchema = {
     eventTitle: { type: String, required: true },
+    eventId :{ type: String, required: true },
     description: { type: String, required: true },
-    ticketCount: { type: String, required: true },
-    DateTime: { type: String, required: true },
-    Location: { type: String, required: true },
+    ticketCount: { type: Number, required: true },
+    dateTime: { type: String, required: true },
+    type:{ type: String, required: true },
+    location: { type: String, required: true },
   };
 
   let userSelectedEventSchema = {
@@ -53,14 +55,16 @@ let eventSchema = {
     }]
     };
         
-
-
-
 //const userSchema = new Schema(schema, { collection: "User", timestamps: true });
 const signUpSchema = new Schema(signupSchema, {
   collection: "SignUpEvent",
   timestamps: true,
 });
+
+const postedEventsSchema = new Schema(eventSchema, {
+    collection: "postedEvents",
+    timestamps: true,
+  }); 
 
 connection.getUserCollectionSignUp = async () => {
   try {
@@ -92,5 +96,19 @@ connection.getUserEvents = async () => {
     throw error;
   }
 };
-
+connection.postEvents = async () => {
+    try {
+      console.log("COLLECTION");
+      return (
+        await mongoose.connect(process.env.DATABASE, {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+        })
+      ).model("postedEvents", postedEventsSchema);
+    } catch (err) {
+      let error = new Error("Could not connect to database");
+      error.status = 500;
+      throw error;
+    }
+  };
 module.exports = connection;
