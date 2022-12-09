@@ -1,9 +1,31 @@
-class SignupUserModel {
-    constructor( obj ) {
-        this.name = obj.name;
-        this.email = obj.email;
-        this.password = obj.password;
-    }
+const collection = require('../utilities/connection');
+const signUpUserModel = {};
+
+signUpUserModel.findUserByEmail = (emailId) => {
+    return collection.getUserCollectionSignUp().then(model => {
+        return model.findOne({ "emailId": emailId }).then((userData) => {
+            console.log("user Dataaaa" +userData);
+            if (userData === null) {
+                console.log("user Data" +userData);
+                return null;
+
+            }else{
+                return userData;
+            }
+        })
+    })
 }
 
-module.exports = SignupUserModel;
+signUpUserModel.createUser = (newUser) => {
+    return collection.getUserCollectionSignUp().then(userModel => {
+        return userModel.create(newUser).then(data => {
+            if (data)
+                return true;
+            else
+                return false;
+        })
+    })
+}
+
+
+module.exports = signUpUserModel;
