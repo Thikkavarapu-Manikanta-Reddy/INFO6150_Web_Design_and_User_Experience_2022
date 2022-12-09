@@ -1,4 +1,3 @@
-//const User = require('../model/User');
 const userdb = require('../model/loginUserModel');
 const validator = require('../utilities/Validators');
 
