@@ -7,6 +7,10 @@ function Home({ user }) {
 
     const navigate = useNavigate();
 
+    const logout = () => {
+        navigate("/login");
+    }
+
     return (
         <div style={{ width: "70%", margin: "auto" }}>
             <div className="row">
@@ -72,6 +76,14 @@ function Home({ user }) {
                     </div><br />
                     <p className="secondaryColor fontRegularSmall">
                         Refer & Earn
+                    </p>
+                </div>
+                <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 text-center">
+                    <div onClick={logout} className="hoverTransition">
+                        <i style={{ marginTop: "25px", fontSize: "40px" }} className="fa fa-usd"></i>
+                    </div><br />
+                    <p className="secondaryColor fontRegularSmall">
+                        Logout
                     </p>
                 </div>
             </div><br />
