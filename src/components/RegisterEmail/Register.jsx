@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
+import registerImage from "../../register.svg";
 
 function Copyright(props) {
   return (
@@ -95,13 +96,10 @@ function Register() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: "url(https://source.unsplash.com/random)",
+            backgroundImage: `url(${registerImage})`,
+            backgroundColor: "white",
             backgroundRepeat: "no-repeat",
-            backgroundColor: (t) =>
-              t.palette.mode === "light"
-                ? t.palette.grey[50]
-                : t.palette.grey[900],
-            backgroundSize: "cover",
+            backgroundSize: "contain",
             backgroundPosition: "center",
           }}
         />
@@ -113,6 +111,7 @@ function Register() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              marginTop: 18,
             }}
           >
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
