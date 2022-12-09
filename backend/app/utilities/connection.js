@@ -42,6 +42,20 @@ let eventSchema = {
     Location: { type: String, required: true },
   };
 
+  let userSelectedEventSchema = {
+    emailId:{ type: String, required: true },
+    event :[{
+        "eventTitle": { type: String, required: true },
+        "description": { type: String, required: true },
+        "ticketCount": { type: Number, required: true },
+        "DateTime": { type: String, required: true },
+        "Location": { type: String, required: true },
+    }]
+    };
+        
+
+
+
 //const userSchema = new Schema(schema, { collection: "User", timestamps: true });
 const signUpSchema = new Schema(signupSchema, {
   collection: "SignUpEvent",

@@ -2,7 +2,7 @@ const userService = require("../services/userEventsService");
 
 const getUserEvents = async (req, res) => {
   userService
-    .getUserEvents()
+    .getAllEvents()
     .then((result) => {
       res.status(200);
       res.json(result);
@@ -13,4 +13,4 @@ const getUserEvents = async (req, res) => {
     });
 };
 
-module.exports = { getUserEvents };
+module.exports = {getUserEvents} ;

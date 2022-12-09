@@ -7,3 +7,5 @@ userModel.getAllUserEvents = () => {
     return userModel.find().then((users) => users);
   });
 };
+
+module.exports = userModel;
