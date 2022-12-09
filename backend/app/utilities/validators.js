@@ -1,15 +1,29 @@
 let Validator = {};
 
 //to validate user full name
-Validator.validateFullName = function (name) {
+Validator.validateFirstName = function (name) {
     if(name == ""){
-        let err = new Error('Please enter the full name.');
+        let err = new Error('Please enter the First name.');
         err.status = 400;
         throw err;
     }
     let check = String(name).match( /^[a-zA-Z]+[a-zA-Z ]*$/ )
     if (!check) {
-        let err = new Error('Not a valid full name. Full Name should contain only alphabets and space.');
+        let err = new Error('Not a valid first Name. First Name should contain only alphabets and space.');
+        err.status = 400;
+        throw err;
+    }
+}
+
+Validator.validateLastName = function (name) {
+    if(name == ""){
+        let err = new Error('Please enter the Last name.');
+        err.status = 400;
+        throw err;
+    }
+    let check = String(name).match( /^[a-zA-Z]+[a-zA-Z ]*$/ )
+    if (!check) {
+        let err = new Error('Not a valid Last name. Last name should contain only alphabets and space.');
         err.status = 400;
         throw err;
     }
