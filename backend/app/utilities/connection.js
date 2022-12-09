@@ -35,23 +35,27 @@ let signupSchema = {
 };
 
 let eventSchema = {
-    eventTitle: { type: String, required: true },
-    eventId :{ type: String, required: true },
+    id :{ type: String, required: true },
+    title: { type: String, required: true },
+    type:{ type: String, required: true },
     description: { type: String, required: true },
     ticketCount: { type: Number, required: true },
-    dateTime: { type: String, required: true },
-    type:{ type: String, required: true },
+    dateAndTime: { type: String, required: true },
+    dateAndTimeObj: { type: Object, required: true },  
     location: { type: String, required: true },
   };
 
   let userSelectedEventSchema = {
     emailId:{ type: String, required: true },
     event :[{
-        "eventTitle": { type: String, required: true },
+        "id" :{ type: String, required: true },
+        "title": { type: String, required: true },
+        "type":{ type: String, required: true },
         "description": { type: String, required: true },
         "ticketCount": { type: Number, required: true },
-        "DateTime": { type: String, required: true },
-        "Location": { type: String, required: true },
+        "dateAndTime": { type: String, required: true },
+        "dateAndTimeObj": { type: Object, required: true },
+        "location": { type: String, required: true },
     }]
     };
         
