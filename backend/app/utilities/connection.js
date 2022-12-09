@@ -35,26 +35,32 @@ let signupSchema = {
 };
 
 let eventSchema = {
-    eventTitle: { type: String, required: true },
-    eventId :{ type: String, required: true },
-    description: { type: String, required: true },
-    ticketCount: { type: Number, required: true },
-    dateTime: { type: String, required: true },
-    type:{ type: String, required: true },
-    location: { type: String, required: true },
-  };
+  id: { type: String, required: true },
+  title: { type: String, required: true },
+  type: { type: String, required: true },
+  description: { type: String, required: true },
+  ticketCount: { type: Number, required: true },
+  dateAndTime: { type: String, required: true },
+  dateAndTimeObj: { type: Object, required: true },
+  location: { type: String, required: true },
+};
 
-  let userSelectedEventSchema = {
-    emailId:{ type: String, required: true },
-    event :[{
-        "eventTitle": { type: String, required: true },
-        "description": { type: String, required: true },
-        "ticketCount": { type: Number, required: true },
-        "DateTime": { type: String, required: true },
-        "Location": { type: String, required: true },
-    }]
-    };
-        
+let userSelectedEventSchema = {
+  emailId: { type: String, required: true },
+  event: [
+    {
+      id: { type: String, required: true },
+      title: { type: String, required: true },
+      type: { type: String, required: true },
+      description: { type: String, required: true },
+      ticketCount: { type: Number, required: true },
+      dateAndTime: { type: String, required: true },
+      dateAndTimeObj: { type: Object, required: true },
+      location: { type: String, required: true },
+    },
+  ],
+};
+
 //const userSchema = new Schema(schema, { collection: "User", timestamps: true });
 const signUpSchema = new Schema(signupSchema, {
   collection: "SignUpEvent",
@@ -62,9 +68,9 @@ const signUpSchema = new Schema(signupSchema, {
 });
 
 const postedEventsSchema = new Schema(eventSchema, {
-    collection: "postedEvents",
-    timestamps: true,
-  }); 
+  collection: "postedEvents",
+  timestamps: true,
+});
 
 connection.getUserCollectionSignUp = async () => {
   try {
@@ -82,7 +88,7 @@ connection.getUserCollectionSignUp = async () => {
   }
 };
 
-connection.getUserEvents = async () => {
+connection.getStudentEvents = async () => {
   try {
     return (
       await mongoose.connect(process.env.DATABASE, {
@@ -97,18 +103,32 @@ connection.getUserEvents = async () => {
   }
 };
 connection.postEvents = async () => {
-    try {
-      console.log("COLLECTION");
-      return (
-        await mongoose.connect(process.env.DATABASE, {
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
-        })
-      ).model("postedEvents", postedEventsSchema);
-    } catch (err) {
-      let error = new Error("Could not connect to database");
-      error.status = 500;
-      throw error;
-    }
-  };
+  try {
+    console.log("COLLECTION");
+    return (
+      await mongoose.connect(process.env.DATABASE, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      })
+    ).model("postedEvents", postedEventsSchema);
+  } catch (err) {
+    let error = new Error("Could not connect to database");
+    error.status = 500;
+    throw error;
+  }
+};
+connection.getUserEvents = async () => {
+  try {
+    return (
+      await mongoose.connect(process.env.DATABASE, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      })
+    ).model("userEvents", userSelectedEventSchema);
+  } catch (err) {
+    let error = new Error("Could not connect to database");
+    error.status = 500;
+    throw error;
+  }
+};
 module.exports = connection;
