@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "./Dashboard.scss";
+import "./Events.scss";
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
@@ -7,16 +7,17 @@ import EndPointLoader from "../../EndPointLoader/EndPointLoader";
 import Snackbar from "../../SnackBar/SnackBar";
 import axios from '../../../configs/axiosConfig';
 import Avatar from 'react-avatar';
-import EventHost from "../EventHost/EventHost"
+import EventHost from "../EventHost/EventHost";
 
-function Dashboard({ user }) {
+function Events({ user }) {
 
-    const addOrEditEvent = (status, data) => {
+    const addOrEditEvent = (data) => {
+        setSelectedEventData(data);
         toggleEventModal();
     }
 
     const addStudentEvent = () => {
-        
+
     }
 
     const [isEventModalOpen, setisEventModalOpen] = useState(false);
@@ -25,7 +26,7 @@ function Dashboard({ user }) {
         setisEventModalOpen(!isEventModalOpen);
     }
 
-    const [selectedEventData, setselectedEventData] = useState(null);
+    const [selectedEventData, setSelectedEventData] = useState(null);
 
     const [eventDataList, seteventDataList] = useState(null);
 
@@ -55,21 +56,17 @@ function Dashboard({ user }) {
                     "type": "Food",
                     "description": "cfwdefcw",
                     "ticketCount": 89,
-                    "date": "12th June 2022",
-                    "time": "9:00 am",
+                    "dateAndTime": "23 March 2022 - 8:25 am",
                     "location": "SHILMAN HALL"
-
                 },
                 {
                     "id": "2",
                     "title": "Diwali 2022 Party",
                     "type": "Entertainment",
                     "description": "cfwdefcw",
-                    "ticketCount": 19,
-                    "date": "12th June 2022",
-                    "time": "9:00 am",
+                    "ticketCount": 89,
+                    "dateAndTime": "12th June 2022 - 9:00 am",
                     "location": "SHILMAN HALL"
-
                 },
                 {
                     "id": "3",
@@ -77,21 +74,17 @@ function Dashboard({ user }) {
                     "type": "Movie",
                     "description": "cfwdefcw",
                     "ticketCount": 89,
-                    "date": "12th June 2022",
-                    "time": "9:00 am",
+                    "dateAndTime": "12th June 2022 - 9:00 am",
                     "location": "SHILMAN HALL"
-
                 },
                 {
                     "id": "4",
                     "title": "Diwali 2022 Party",
                     "type": "Music",
                     "description": "cfwdefcw",
-                    "ticketCount": 19,
-                    "date": "12th June 2022",
-                    "time": "9:00 am",
+                    "ticketCount": 89,
+                    "dateAndTime": "12th June 2022 - 9:00 am",
                     "location": "SHILMAN HALL"
-
                 }
             ]
         })
@@ -151,7 +144,12 @@ function Dashboard({ user }) {
     }
 
     const deleteMediaFiles = (data) => {
-
+        if(user.role == "Admin") {
+            console.log("Access Approved");
+        }
+        else {
+            console.log("Access Denied");
+        }
     }
 
     return (
@@ -167,7 +165,7 @@ function Dashboard({ user }) {
                         {
                             user.role === 'Admin' ?
                                 <div>
-                                    <Fab style={{ backgroundColor: "#0e76a8" }} onClick={() => addOrEditEvent('CREATE', null)} size="small" color="primary" aria-label="add">
+                                    <Fab style={{ backgroundColor: "#0e76a8" }} onClick={() => addOrEditEvent(null)} size="small" color="primary" aria-label="add">
                                         <AddIcon />
                                     </Fab>&nbsp;&nbsp;
                                     <span className="smallTextColor fontRegularSmall">Events</span><br />
@@ -212,7 +210,7 @@ function Dashboard({ user }) {
                                                                     <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                                                                         {
                                                                             user.role == "Admin" ?
-                                                                                <Fab style={{ backgroundColor: "#0e76a8" }} onClick={() => addOrEditEvent('EDIT', data)} color="secondary" size="small" aria-label="edit">
+                                                                                <Fab style={{ backgroundColor: "#0e76a8" }} onClick={() => addOrEditEvent(data)} color="secondary" size="small" aria-label="edit">
                                                                                     <EditIcon />
                                                                                 </Fab>
                                                                                 :
@@ -226,7 +224,7 @@ function Dashboard({ user }) {
 
                                                                 <div className="row">
                                                                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                                                        <img style={{ width: "100px", height: "100px" }} src={process.env.PUBLIC_URL + data.type + ".svg"} />
+                                                                        <img style={{ width: "100px", height: "100px" }} src={"/" + process.env.PUBLIC_URL + data.type + ".svg"} />
                                                                     </div>
                                                                 </div>
 
@@ -244,7 +242,7 @@ function Dashboard({ user }) {
 
                                                                 <div className="row">
                                                                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                                        <span className="smallTextColor fontCustomSmall">Date & Time : &nbsp;{data.date} - {data.time}</span><br />
+                                                                        <span className="smallTextColor fontCustomSmall">Date & Time : &nbsp;{data.dateAndTime}</span><br />
                                                                     </div>
                                                                 </div>
 
@@ -258,14 +256,12 @@ function Dashboard({ user }) {
                                                                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                                                                         <hr />
                                                                         <div className="row">
-                                                                            <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
-                                                                            <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 text-center">
+                                                                            {/* <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 text-center">
                                                                                 <i style={{ fontSize: "20px", color: "#0e76a8", cursor: "pointer" }} onClick={() => viewMediaFiles(data)} className="fa fa-eye"></i>
+                                                                            </div> */}
+                                                                            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                                                                <i style={{ fontSize: "20px", color: "#0e76a8", cursor: "pointer" }} onClick={() => deleteMediaFiles(data)} className={user.role === "Admin" ? "fa fa-trash" : "fa fa-trash disabledIcon"}></i>
                                                                             </div>
-                                                                            <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 text-center">
-                                                                                <i style={{ fontSize: "20px", color: "#0e76a8", cursor: "pointer" }} onClick={() => deleteMediaFiles(data)} className={data.active === false ? "fa fa-undo" : "fa fa-trash"}></i>
-                                                                            </div>
-                                                                            <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -295,4 +291,4 @@ function Dashboard({ user }) {
     )
 }
 
-export default Dashboard
+export default Events

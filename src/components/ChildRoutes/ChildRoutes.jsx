@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, Navigate } from 'react-router-dom';
 import LazyLoader from '../LazyLoader/LazyLoader';
 import "./ChildRoutes.scss";
 import logoImage from "../../letter-e-nb.png";
@@ -8,7 +8,10 @@ import Avatar from 'react-avatar';
 
 function ChildRoutes(props) {
 
-    const Dashboard = lazy(() => import("./Dashboard/Dashboard"));
+    const Dashboard = lazy(() => import("./Home/Home"));
+    const Events = lazy(() => import("./Events/Events"));
+    const BookedEvents = lazy(() => import("./BookedEvents/BookedEvents"));
+
     const [loggedUser, setloggedUser] = useState(null);
     const navigate = useNavigate();
 
@@ -29,7 +32,7 @@ function ChildRoutes(props) {
                     <>
                         <header className="navBar_header">
                             <div className="left_content">
-                                <div style={{ cursor: "pointer" }}>
+                                <div onClick={() => navigate("/dashboard")} style={{ cursor: "pointer" }}>
                                     <img className="img_logo" src={logoImage} alt="logo" width="40" height="40" />
                                 </div>
                             </div>
@@ -47,7 +50,14 @@ function ChildRoutes(props) {
                         </header>
                         <Suspense fallback={LazyLoader()}>
                             <Routes>
-                                <Route exact path="/" element={<Dashboard user={loggedUser} />} />
+                                <Route
+                                    exact
+                                    path="/"
+                                    element={<Dashboard user={loggedUser} />}
+                                >
+                                </Route>
+                                <Route exact path="events" element={<Events user={loggedUser} />} />
+                                <Route exact path="booked-events" element={<BookedEvents user={loggedUser} />} />
                                 <Route path="*" element={props.children} />
                             </Routes>
                         </Suspense>

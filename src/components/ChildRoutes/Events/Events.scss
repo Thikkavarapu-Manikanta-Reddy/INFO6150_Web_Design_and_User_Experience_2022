@@ -17,3 +17,8 @@
 body {
     font-family: 'Poppins', sans-serif !important;
   }
+
+.disabledIcon {
+    pointer-events: auto! important;
+    cursor: not-allowed! important;
+}

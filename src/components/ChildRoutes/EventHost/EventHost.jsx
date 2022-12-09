@@ -19,6 +19,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import Button from '@mui/material/Button';
 import eventCreation from "../../../assets/event_creation.svg";
 import Divider from '@mui/material/Divider';
+import { v1 as uuidv1 } from 'uuid';
 
 function EventHost(props) {
 
@@ -29,8 +30,9 @@ function EventHost(props) {
     const handleDateAndTimeChange = (newValue) => {
         setDateAndTimeValue(newValue);
         let dateAndTime = constructDateAndTimeString(newValue);
-        console.log(dateAndTime);
-        setEventData({ ...eventData, dateAndTime });
+        console.log(dateAndTime, typeof newValue);
+        setEventData({...eventData, dateAndTimeObj: newValue});
+        setEventData({ ...eventData, dateAndTime: dateAndTime });
     };
 
     const constructDateAndTimeString = (dateObj) => {
@@ -43,15 +45,17 @@ function EventHost(props) {
             hour = dateObj.$H;
             amOrPm = "am";
         }
-        return `${dateObj.$D}` + " " + `${month[dateObj.$M]}` + " " + `${dateObj.$y}` + " - " + `${hour}` + `${dateObj.$m}` + " " + `${amOrPm}`;
+        return `${dateObj.$D}` + " " + `${month[dateObj.$M]}` + " " + `${dateObj.$y}` + " - " + `${hour}` + ":" + `${dateObj.$m}` + " " + `${amOrPm}`;
     }
 
     const [eventData, setEventData] = useState({
+        id: uuidv1(),
         title: '',
         type: '',
         description: '',
         ticketCount: '',
         dateAndTime: '',
+        dateAndTimeObj: '',
         location: ''
     });
 
@@ -91,7 +95,35 @@ function EventHost(props) {
     }
 
     const saveEvent = () => {
+        console.log(eventData);
+        let isSubscribed = true;
 
+        setshowLoader(true);
+        axios.post('/postEvent', eventData, uploadProgressOptions)
+            .then(response => {
+                console.log(response);
+                if (isSubscribed === true) {
+                    if (response.data.success === true) {
+                        props.eventsDisplay();
+                        props.toggleEventModal();
+                        setMessageHandler({ ...MessageHandler, message: response.data.message, status: true });
+                    }
+                    else {
+                        setMessageHandler({ ...MessageHandler, message: response.data.message, status: false });
+                        handleClick();
+                    }
+                }
+                setshowLoader(false);
+            })
+            .catch(error => {
+                if (isSubscribed === true) {
+                    console.log(error, error.response, error.message, error.request);
+                    setMessageHandler({ ...MessageHandler, message: error.response.data.message, status: false });
+                    handleClick();
+                }
+                setshowLoader(false);
+            })
+        return () => (isSubscribed = false);
     }
 
     const getEventData = (e) => {
@@ -107,9 +139,19 @@ function EventHost(props) {
         if (reason === 'clickaway') {
             return;
         }
-
         setOpen(false);
     };
+
+    useEffect(() => {
+        console.log(eventData);
+        if (props.selectedEventData) {
+            console.log(props);
+            setEventData(props.selectedEventData);
+        }
+        else {
+            handleDateAndTimeChange(dateAndTimeValue)
+        }
+    }, [])
 
     return (
         <div className="poppinsFont">
@@ -177,6 +219,7 @@ function EventHost(props) {
                                         aria-label="empty textarea"
                                         placeholder="Description"
                                         minRows={5}
+                                        value={eventData.description}
                                         style={{ width: "100%" }}
                                     />
                                 </div>
