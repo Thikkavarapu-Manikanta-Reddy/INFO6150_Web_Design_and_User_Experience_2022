@@ -2,9 +2,9 @@ const collection = require('../utilities/connection');
 
 const loginUserModel = {};
 
-loginUserModel.findUserByEmail = (email) => {
-    return collection.getUserCollection().then(model => {
-        return model.findOne({ "email": email }).then((userData) => {
+loginUserModel.findUserByEmail = (emailId) => {
+    return collection.getUserCollectionSignUp().then(model => {
+        return model.findOne({ "emailId": emailId }).then((userData) => {
             if (userData === null) {
                 return null;
 
