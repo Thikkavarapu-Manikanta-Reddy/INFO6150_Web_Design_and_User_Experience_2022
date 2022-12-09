@@ -35,6 +35,7 @@ let signupSchema = {
 };
 
 let eventSchema = {
+  emailId: { type: String, required: true },
   id: { type: String, required: true },
   title: { type: String, required: true },
   type: { type: String, required: true },
@@ -124,7 +125,7 @@ connection.getUserEvents = async () => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })
-    ).model("userEvents", userSelectedEventSchema);
+    ).model("userEvents", eventSchema);
   } catch (err) {
     let error = new Error("Could not connect to database");
     error.status = 500;
