@@ -34,6 +34,14 @@ let signupSchema = {
   },
 };
 
+let eventSchema = {
+    eventTitle: { type: String, required: true },
+    description: { type: String, required: true },
+    ticketCount: { type: String, required: true },
+    DateTime: { type: String, required: true },
+    Location: { type: String, required: true },
+  };
+
 //const userSchema = new Schema(schema, { collection: "User", timestamps: true });
 const signUpSchema = new Schema(signupSchema, {
   collection: "SignUpEvent",
@@ -56,7 +64,6 @@ connection.getUserCollectionSignUp = async () => {
   }
 };
 
-<<<<<<< Updated upstream
 connection.getUserEvents = async () => {
   try {
     return (
@@ -72,6 +79,4 @@ connection.getUserEvents = async () => {
   }
 };
 
-=======
->>>>>>> Stashed changes
 module.exports = connection;
