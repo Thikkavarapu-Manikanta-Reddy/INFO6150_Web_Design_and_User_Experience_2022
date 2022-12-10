@@ -14,6 +14,8 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { InputLabel, MenuItem, Select } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import signUpBackground from "../../screen-2.png";
+import signUpSVG from "../../signUp.svg";
 
 import { useState, useEffect } from "react";
 import "./Signup.scss";
@@ -98,17 +100,16 @@ export default function SignUp() {
           <Grid
             item
             xs={false}
-            sm={4}
+            sm={3}
             md={7}
             sx={{
-              backgroundImage: "url(https://source.unsplash.com/random)",
+              backgroundImage: `url(${signUpBackground})`,
               backgroundRepeat: "no-repeat",
-              backgroundColor: (t) =>
-                t.palette.mode === "light"
-                  ? t.palette.grey[50]
-                  : t.palette.grey[900],
-              backgroundSize: "cover",
+              backgroundSize: "contain",
               backgroundPosition: "center",
+              width: "65%",
+              height: "65%",
+              marginTop: 16,
             }}
           />
           <Container component="main" maxWidth="xs">
@@ -224,11 +225,6 @@ export default function SignUp() {
                 </Grid>
 
                 <Grid container justifyContent="flex-end">
-                  <Grid item>
-                    <Link href="#" variant="body2" onClick={goToLogin}>
-                      Already have an account? Sign in
-                    </Link>
-                  </Grid>
                   <Button
                     type="submit"
                     fullWidth
