@@ -103,6 +103,9 @@ function Register() {
             backgroundRepeat: "no-repeat",
             backgroundSize: "contain",
             backgroundPosition: "center",
+            marginTop: 16,
+            width: "65%",
+            height: "65%",
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>

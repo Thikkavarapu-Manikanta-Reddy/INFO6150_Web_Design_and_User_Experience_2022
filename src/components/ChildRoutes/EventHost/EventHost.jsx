@@ -184,7 +184,7 @@ function EventHost(props) {
 
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                            <img className="imageSize" src={eventCreation} alt="Not_Found" /><br />
+                            <img className="eventImageSize" src={eventCreation} alt="Not_Found" /><br />
                         </div>
                         <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-center">
                             <Divider style={{ height: "100%" }} orientation="vertical" flexItem />
