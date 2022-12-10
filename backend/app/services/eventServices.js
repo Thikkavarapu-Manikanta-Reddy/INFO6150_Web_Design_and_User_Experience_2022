@@ -37,4 +37,16 @@ eventServices.deleteEvents = (eventId) => {
   });
 };
 
+eventServices.createStudentBookedEvents = (newStudentEvent) => {
+  return userdb.postStudentEvent(newStudentEvent).then((data) => {
+    if (data) {
+      return data;
+    } else {
+      let err = new Error("Unable to post event in student collection");
+      err.status = 404;
+      throw err;
+    }
+  });
+};
+
 module.exports = eventServices;

@@ -21,6 +21,20 @@ const postEvents = async (req, res) => {
     });
 };
 
+const postStudentEvents = async (req, res) => {
+  const newStudentEvent = new Events(req.body);
+
+  eventServices
+    .createStudentBookedEvents(newStudentEvent)
+    .then((result) => {
+      if (result != null) res.json("Event added to student collection");
+    })
+    .catch((err) => {
+      res.status(400);
+      res.json({ message: err.message });
+    });
+};
+
 const deleteEvent = async (req, res) => {
   try {
     let eventId = req.body.id;
@@ -37,4 +51,4 @@ const deleteEvent = async (req, res) => {
   } catch (err) {}
 };
 
-module.exports = { postEvents, deleteEvent };
+module.exports = { postEvents, postStudentEvents, deleteEvent };
