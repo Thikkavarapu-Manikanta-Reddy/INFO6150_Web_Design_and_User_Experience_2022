@@ -16,17 +16,21 @@ import { InputLabel, MenuItem, Select } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import signUpBackground from "../../screen-2.png";
 import signUpSVG from "../../signUp.svg";
-
+import localStorageService from "../../configs/LocalStorageService";
 import { useState, useEffect } from "react";
 import "./Signup.scss";
+import axios from "../../configs/axiosConfig";
+import Snackbar from '../../components/SnackBar/SnackBar';
+import EndPointLoader from '../../components/EndPointLoader/EndPointLoader';
 
 const payload = {
   firstName: "",
   lastName: "",
-  email: "",
+  emailId: "",
   password: "",
   confirmPassword: "",
   university: "NEU",
+  role: "Student"
 };
 
 function Copyright(props) {
@@ -52,33 +56,73 @@ const theme = createTheme();
 export default function SignUp() {
   const [values, setValues] = useState(payload);
   const navigate = useNavigate();
+
+  const [MessageHandler, setMessageHandler] = useState({ message: '', status: true });
+
+  const [open, setOpen] = React.useState(false);
+
+  const [showLoader, setshowLoader] = useState(false);
+  const [uploadPercentage, setuploadPercentage] = useState(0);
+
+  const uploadProgressOptions = {
+      onUploadProgress: (progressEvent) => {
+          const { loaded, total } = progressEvent;
+          let percent = Math.floor((loaded * 100) / total)
+          console.log(`${loaded}bytes of ${total}bytes | ${percent}%`);
+          setuploadPercentage(percent);
+      }
+  }
+
+  const handleClick = () => {
+      setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+          return;
+      }
+      setOpen(false);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const data = new FormData(event.currentTarget);
-    const payloadOld = {
-      firstName: data.get("firstName"),
-      lastName: data.get("lastName"),
-      email: data.get("email"),
-      password: data.get("password"),
-      confirmPassword: data.get("confirmPassword"),
-      // university: "NEU",
-    };
-    console.log(payloadOld);
+    let isSubscribed = true;
 
-    console.log("state =>", values);
+    setshowLoader(true);
+    axios.post('/signup', values, uploadProgressOptions)
+        .then(response => {
+            console.log(response);
+            if (isSubscribed === true) {
+                if (response.data.success === true) {
+                    setMessageHandler({ ...MessageHandler, message: response.data.message, status: true });
+                    handleClick();
+                    setTimeout(() => {
+                        localStorageService.setUser(values);
+                        localStorageService.setVerifiedUser("false");
+                        navigate("/dashboard");
+                    }, 1000);
+                }
+                else {
+                    setMessageHandler({ ...MessageHandler, message: response.data.message, status: false });
+                    handleClick();
+                }
+            }
+            setshowLoader(false);
+        })
+        .catch(error => {
+            if (isSubscribed === true) {
+                console.log(error, error.response, error.message, error.request);
+                setMessageHandler({ ...MessageHandler, message: error.response.data.message, status: false });
+                handleClick();
+            }
+            setshowLoader(false);
+        })
+    return () => (isSubscribed = false);
 
-    return fetch("http://localhost:8000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(values),
-    })
-      .then((data) => data.json())
-      .then((data) => {
-        console.log(data);
-      });
+    
+
+
   };
 
   const handleChange = (event) => {
@@ -91,6 +135,12 @@ export default function SignUp() {
   const goToLogin = () => {
     navigate("/login");
   };
+
+  useEffect(() => {
+    if(!localStorageService.getVerifiedUser() || localStorageService.getVerifiedUser() == "false") {
+      navigate("/registerEmail");
+    }
+  }, [])
 
   return (
     <div className="layout">
@@ -164,10 +214,10 @@ export default function SignUp() {
                     <TextField
                       required
                       fullWidth
-                      id="email"
+                      id="emailId"
                       label="Email Address"
-                      name="email"
-                      value={values.email}
+                      name="emailId"
+                      value={values.emailId}
                       autoComplete="email"
                       onChange={handleChange}
                     />
@@ -251,6 +301,8 @@ export default function SignUp() {
           </Container>
         </Grid>
       </ThemeProvider>
+      {showLoader === true ? <EndPointLoader showLoader={showLoader} uploadPercentage={uploadPercentage} /> : null}
+            {open === true ? <Snackbar handleClose={handleClose} status={MessageHandler.status} message={MessageHandler.message} openStatus={open} /> : null}
     </div>
   );
 }

@@ -13,7 +13,8 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-import registerImage from "../../register.svg";
+import registerImage from "../../assets/img-f.png";
+import localStorageService from "../../configs/LocalStorageService";
 
 function Copyright(props) {
   return (
@@ -81,6 +82,7 @@ function Register() {
     const otp = document.getElementById("password").value;
     console.log(otp);
     if (otp === "4423") {
+      localStorageService.setVerifiedUser("true");
       navigate("/signup");
     } else {
       setOpenIncorrectOTP(true);

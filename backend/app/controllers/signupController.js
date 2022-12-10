@@ -20,16 +20,18 @@ const signup = async (req, res) => {
     signupServices
       .createUser(newUser)
       .then((result) => {
-        if (result != null) res.json("User created Successfully");
+        if (result != null) {
+          res.json({ success: true, message: "User created Successfully !!" });
+        }
       })
       .catch((err) => {
         res.status(400);
-        res.json({ message: err.message });
+        res.json({ message: err.message, success: false });
       });
     console.log("inside Signup function");
   } catch (err) {
     res.status(400);
-    res.json({ message: err.message });
+    res.json({ message: err.message, success: false });
   }
 };
 
