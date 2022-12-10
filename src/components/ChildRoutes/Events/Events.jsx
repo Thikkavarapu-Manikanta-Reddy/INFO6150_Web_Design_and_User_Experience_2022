@@ -20,7 +20,7 @@ function Events({ user }) {
     }
 
     const addStudentEvent = (data) => {
-        studentEventPost(data.id);
+        studentEventPost(data);
     }
 
     const [isEventModalOpen, setisEventModalOpen] = useState(false);
@@ -50,59 +50,55 @@ function Events({ user }) {
     }
 
     useEffect(() => {
-        // eventsDisplay();
-        seteventDataList({
-            "events": [
-                {
-                    "id": "1",
-                    "title": "Diwali 2022 Party",
-                    "type": "Food",
-                    "description": "cfwdefcw",
-                    "ticketCount": 89,
-                    "dateAndTime": "23 March 2022 - 8:25 am",
-                    "location": "SHILMAN HALL"
-                },
-                {
-                    "id": "2",
-                    "title": "Diwali 2022 Party",
-                    "type": "Entertainment",
-                    "description": "cfwdefcw",
-                    "ticketCount": 89,
-                    "dateAndTime": "12th June 2022 - 9:00 am",
-                    "location": "SHILMAN HALL"
-                },
-                {
-                    "id": "3",
-                    "title": "Diwali 2022 Party",
-                    "type": "Movie",
-                    "description": "cfwdefcw",
-                    "ticketCount": 89,
-                    "dateAndTime": "12th June 2022 - 9:00 am",
-                    "location": "SHILMAN HALL"
-                },
-                {
-                    "id": "4",
-                    "title": "Diwali 2022 Party",
-                    "type": "Music",
-                    "description": "cfwdefcw",
-                    "ticketCount": 89,
-                    "dateAndTime": "12th June 2022 - 9:00 am",
-                    "location": "SHILMAN HALL"
-                }
-            ]
-        })
+        eventsDisplay();
+        // seteventDataList({
+        //     "events": [
+        //         {
+        //             "id": "1",
+        //             "title": "Diwali 2022 Party",
+        //             "type": "Food",
+        //             "description": "cfwdefcw",
+        //             "ticketCount": 89,
+        //             "dateAndTime": "23 March 2022 - 8:25 am",
+        //             "location": "SHILMAN HALL"
+        //         },
+        //         {
+        //             "id": "2",
+        //             "title": "Diwali 2022 Party",
+        //             "type": "Entertainment",
+        //             "description": "cfwdefcw",
+        //             "ticketCount": 89,
+        //             "dateAndTime": "12th June 2022 - 9:00 am",
+        //             "location": "SHILMAN HALL"
+        //         },
+        //         {
+        //             "id": "3",
+        //             "title": "Diwali 2022 Party",
+        //             "type": "Movie",
+        //             "description": "cfwdefcw",
+        //             "ticketCount": 89,
+        //             "dateAndTime": "12th June 2022 - 9:00 am",
+        //             "location": "SHILMAN HALL"
+        //         },
+        //         {
+        //             "id": "4",
+        //             "title": "Diwali 2022 Party",
+        //             "type": "Music",
+        //             "description": "cfwdefcw",
+        //             "ticketCount": 89,
+        //             "dateAndTime": "12th June 2022 - 9:00 am",
+        //             "location": "SHILMAN HALL"
+        //         }
+        //     ]
+        // })
     }, [])
 
     const eventsDisplay = () => {
 
         let isSubscribed = true;
-
-        var eventDto = {
-
-        }
-
         setshowLoader(true);
-        axios.post('/class/list', eventDto, uploadProgressOptions)
+
+        axios.get('/getUserEvents', uploadProgressOptions)
             .then(response => {
                 console.log(response);
                 if (isSubscribed === true) {
@@ -130,22 +126,21 @@ function Events({ user }) {
 
     }
 
-    const studentEventPost = (id) => {
+    const studentEventPost = (data) => {
 
         let isSubscribed = true;
 
-        let payload = {
-            "id": id
-        }
-
         setshowLoader(true);
-        axios.post('/saveStudentEvents', payload, uploadProgressOptions)
+        axios.post('/postStudentEvents', data, uploadProgressOptions)
             .then(response => {
                 console.log(response);
                 if (isSubscribed === true) {
                     if (response.data.success === true) {
                         setMessageHandler({ ...MessageHandler, message: response.data.message, status: true });
-                        navigate("/dashboard/booked-events");
+                        setTimeout(() => {
+                            navigate("/dashboard/booked-events");
+                        }, 1000);
+                        handleClick();
                     }
                     else {
                         setMessageHandler({ ...MessageHandler, message: response.data.message, status: false });
@@ -182,12 +177,38 @@ function Events({ user }) {
 
     }
 
-    const deleteMediaFiles = (data) => {
-        if(user.role == "Admin") {
-            console.log("Access Approved");
-        }
-        else {
-            console.log("Access Denied");
+    const deleteEvents = (data) => {
+        if (user.role == "Admin") {
+            let isSubscribed = true;
+            setshowLoader(true);
+
+            axios.delete('/deleteEvent', { data: data }, uploadProgressOptions)
+                .then(response => {
+                    console.log(response);
+                    if (isSubscribed === true) {
+                        if (response.data.success === true) {
+                            setMessageHandler({ ...MessageHandler, message: response.data.message, status: true });
+                            setTimeout(() => {
+                                eventsDisplay();
+                            }, 1000);
+                            handleClick();
+                        }
+                        else {
+                            setMessageHandler({ ...MessageHandler, message: response.data.message, status: false });
+                            handleClick();
+                        }
+                    }
+                    setshowLoader(false);
+                })
+                .catch(error => {
+                    if (isSubscribed === true) {
+                        console.log(error, error.response, error.message, error.request);
+                        setMessageHandler({ ...MessageHandler, message: error.response.data.message, status: false });
+                        handleClick();
+                    }
+                    setshowLoader(false);
+                })
+            return () => (isSubscribed = false);
         }
     }
 
@@ -229,11 +250,11 @@ function Events({ user }) {
                         ) :
                         (
                             <>
-                                {eventDataList.events === null ? null :
+                                {eventDataList === null ? null :
                                     (
                                         <>
                                             <div className="row">
-                                                {eventDataList.events.map((data, index) => (
+                                                {eventDataList.map((data, index) => (
                                                     <div key={data.id} className="mobileCardCenterView col-xs-12 col-sm-12 col-md-4 col-lg-4"><br />
                                                         <div id="box" className="card" style={{ width: "100%", borderRadius: "12px" }}>
                                                             <div className="card-body">
@@ -299,7 +320,7 @@ function Events({ user }) {
                                                                                 <i style={{ fontSize: "20px", color: "#0e76a8", cursor: "pointer" }} onClick={() => viewMediaFiles(data)} className="fa fa-eye"></i>
                                                                             </div> */}
                                                                             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                                                                <i style={{ fontSize: "20px", color: "#0e76a8", cursor: "pointer" }} onClick={() => deleteMediaFiles(data)} className={user.role === "Admin" ? "fa fa-trash" : "fa fa-trash disabledIcon"}></i>
+                                                                                <i style={{ fontSize: "20px", color: "#0e76a8", cursor: "pointer" }} onClick={() => deleteEvents(data)} className={user.role === "Admin" ? "fa fa-trash" : "fa fa-trash disabledIcon"}></i>
                                                                             </div>
                                                                         </div>
                                                                     </div>

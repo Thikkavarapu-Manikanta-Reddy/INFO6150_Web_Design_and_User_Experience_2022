@@ -38,15 +38,27 @@ eventServices.deleteEvents = (eventId) => {
 };
 
 eventServices.createStudentBookedEvents = (newStudentEvent) => {
-  return userdb.postStudentEvent(newStudentEvent).then((data) => {
-    if (data) {
-      return data;
-    } else {
-      let err = new Error("Unable to post event in student collection");
-      err.status = 404;
-      throw err;
+
+  return userdb.findStudentEventByEventId(newStudentEvent.id).then(object => {
+    {
+      if (object != null) {
+        let err = new Error("Event ticket is already booked by you");
+        err.status = 404;
+        throw err;
+      } else {
+        return userdb.postStudentEvent(newStudentEvent).then((data) => {
+          if (data) {
+            return data;
+          } else {
+            let err = new Error("Unable to post event in student collection");
+            err.status = 404;
+            throw err;
+          }
+        });
+      }
     }
-  });
+  })
+
 };
 
 module.exports = eventServices;

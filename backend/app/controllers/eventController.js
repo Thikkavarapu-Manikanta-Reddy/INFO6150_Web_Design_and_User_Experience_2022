@@ -10,14 +10,14 @@ const postEvents = async (req, res) => {
     .createEvents(newEvent)
     .then((result) => {
       if (result != null && newEvent.status == "Create") {
-        res.json("Event posted Successfully");
+        res.json({ success: true, message: "Event posted Successfully" });
       } else if (result != null && newEvent.status == "Edit") {
-        res.json("Event updated Successfully");
+        res.json({ success: true, message: "Event updated Successfully" });
       }
     })
     .catch((err) => {
       res.status(400);
-      res.json({ message: err.message });
+      res.json({success: false, message: err.message });
     });
 };
 
@@ -27,11 +27,13 @@ const postStudentEvents = async (req, res) => {
   eventServices
     .createStudentBookedEvents(newStudentEvent)
     .then((result) => {
-      if (result != null) res.json("Event added to student collection");
+      if (result != null) {
+        res.json({success: true, message: "Event is successfully booked" });
+      }
     })
     .catch((err) => {
       res.status(400);
-      res.json({ message: err.message });
+      res.json({success: false, message: err.message });
     });
 };
 
@@ -42,13 +44,13 @@ const deleteEvent = async (req, res) => {
       .deleteEvents(eventId)
       .then((result) => {
         res.status(200);
-        res.json(`Event with ID ${result} is deleted successfully`);
+        res.json({ success: true, message: `Event with ID ${result} is deleted successfully` });
       })
       .catch((err) => {
         res.status(400);
-        res.json({ message: err.message });
+        res.json({success: false, message: err.message });
       });
-  } catch (err) {}
+  } catch (err) { }
 };
 
 module.exports = { postEvents, postStudentEvents, deleteEvent };

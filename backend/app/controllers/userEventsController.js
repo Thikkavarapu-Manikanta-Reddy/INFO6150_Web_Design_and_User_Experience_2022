@@ -5,11 +5,11 @@ const getStudentEvents = async (req, res) => {
     .getAllEvents()
     .then((result) => {
       res.status(200);
-      res.json(result);
+      res.json({data: result, success: true});
     })
     .catch((error) => {
       res.status(400);
-      res.json({ message: error.message });
+      res.json({ success: false, message: error.message });
     });
 };
 
@@ -18,11 +18,11 @@ const getUserEvents = async (req, res) => {
     .getUserEvents()
     .then((result) => {
       res.status(200);
-      res.json(result);
+      res.json({data: result, success: true});
     })
     .catch((error) => {
       res.status(400);
-      res.json({ message: error.message });
+      res.json({ success: false, message: error.message });
     });
 };
 

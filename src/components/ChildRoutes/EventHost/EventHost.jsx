@@ -25,15 +25,21 @@ function EventHost(props) {
 
     const [dateAndTimeValue, setDateAndTimeValue] = React.useState(dayjs(new Date()));
 
+    const [actionStatus, setActionStatus] = useState(null);
+
     const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     const handleDateAndTimeChange = (newValue) => {
         setDateAndTimeValue(newValue);
         let dateAndTime = constructDateAndTimeString(newValue);
         console.log(dateAndTime, typeof newValue);
-        setEventData({...eventData, dateAndTimeObj: newValue});
-        setEventData({ ...eventData, dateAndTime: dateAndTime });
+        setEventData({ ...eventData, dateAndTimeObj: newValue, dateAndTime: dateAndTime });
     };
+
+    const closeModal = () => {
+        props.toggleEventModal();
+        props.eventsDisplay();
+    }
 
     const constructDateAndTimeString = (dateObj) => {
         let hour, amOrPm;
@@ -56,7 +62,7 @@ function EventHost(props) {
         ticketCount: '',
         dateAndTime: '',
         dateAndTimeObj: '',
-        location: ''
+        location: '',
     });
 
     const eventTypes = [
@@ -98,15 +104,21 @@ function EventHost(props) {
         console.log(eventData);
         let isSubscribed = true;
 
+        let payload = eventData;
+        payload.status = actionStatus;
+
         setshowLoader(true);
-        axios.post('/postEvent', eventData, uploadProgressOptions)
+        axios.post('/postEvent', payload, uploadProgressOptions)
             .then(response => {
                 console.log(response);
                 if (isSubscribed === true) {
                     if (response.data.success === true) {
-                        props.eventsDisplay();
-                        props.toggleEventModal();
                         setMessageHandler({ ...MessageHandler, message: response.data.message, status: true });
+                        setTimeout(() => {
+                            props.eventsDisplay();
+                            props.toggleEventModal();
+                        }, 1000);
+                        handleClick();
                     }
                     else {
                         setMessageHandler({ ...MessageHandler, message: response.data.message, status: false });
@@ -146,9 +158,12 @@ function EventHost(props) {
         console.log(eventData);
         if (props.selectedEventData) {
             console.log(props);
+            setActionStatus("Edit");
             setEventData(props.selectedEventData);
+            setDateAndTimeValue(props.selectedEventData.dateAndTimeObj);
         }
         else {
+            setActionStatus("Create");
             handleDateAndTimeChange(dateAndTimeValue)
         }
     }, [])
@@ -163,7 +178,7 @@ function EventHost(props) {
                             <hr style={{ width: "30%", margin: "0" }} />
                         </div>
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            <CancelIcon onClick={props.toggleEventModal} className="secondary-color" style={{ float: "right", cursor: "pointer" }} fontSize="large" />
+                            <CancelIcon onClick={closeModal} className="secondary-color" style={{ float: "right", cursor: "pointer" }} fontSize="large" />
                         </div>
                     </div>
 
@@ -225,6 +240,19 @@ function EventHost(props) {
                                 </div>
                             </div>
                             <div className="row">
+                                <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12"><br />
+                                    <TextField
+                                        autoComplete="location"
+                                        name="location"
+                                        required
+                                        fullWidth
+                                        id="location"
+                                        label="Location"
+                                        placeholder="Location" type="text" value={eventData.location} onChange={getEventData}
+                                    />
+                                </div>
+                            </div>
+                            <div className="row">
                                 <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center"><br />
                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                                         <DateTimePicker
@@ -267,7 +295,7 @@ function EventHost(props) {
                                             onClick={saveEvent} style={{ fontSize: "100%", borderRadius: "8px" }} variant="contained">Save</Button>&nbsp;&nbsp;&nbsp;
                                         <Button
                                             className="enableButtonSecondaryColors"
-                                            onClick={props.toggleEventModal} style={{ fontSize: "100%", borderRadius: "8px" }} variant="contained">Cancel</Button>
+                                            onClick={closeModal} style={{ fontSize: "100%", borderRadius: "8px" }} variant="contained">Cancel</Button>
                                     </div>
                                     <br />
                                 </div>

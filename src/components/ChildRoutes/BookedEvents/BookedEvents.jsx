@@ -31,47 +31,47 @@ function BookedEvents({ user }) {
   }
 
   useEffect(() => {
-    // bookedEventsDisplay();
-    setBookedEventDataList({
-      "events": [
-        {
-          "id": "1",
-          "title": "Diwali 2022 Party",
-          "type": "Food",
-          "description": "cfwdefcw",
-          "ticketCount": 89,
-          "dateAndTime": "23 March 2022 - 8:25 am",
-          "location": "SHILMAN HALL"
-        },
-        {
-          "id": "2",
-          "title": "Diwali 2022 Party",
-          "type": "Entertainment",
-          "description": "cfwdefcw",
-          "ticketCount": 89,
-          "dateAndTime": "12th June 2022 - 9:00 am",
-          "location": "SHILMAN HALL"
-        },
-        {
-          "id": "3",
-          "title": "Diwali 2022 Party",
-          "type": "Movie",
-          "description": "cfwdefcw",
-          "ticketCount": 89,
-          "dateAndTime": "12th June 2022 - 9:00 am",
-          "location": "SHILMAN HALL"
-        },
-        {
-          "id": "4",
-          "title": "Diwali 2022 Party",
-          "type": "Music",
-          "description": "cfwdefcw",
-          "ticketCount": 89,
-          "dateAndTime": "12th June 2022 - 9:00 am",
-          "location": "SHILMAN HALL"
-        }
-      ]
-    })
+    bookedEventsDisplay();
+    // setBookedEventDataList({
+    //   "events": [
+    //     {
+    //       "id": "1",
+    //       "title": "Diwali 2022 Party",
+    //       "type": "Food",
+    //       "description": "cfwdefcw",
+    //       "ticketCount": 89,
+    //       "dateAndTime": "23 March 2022 - 8:25 am",
+    //       "location": "SHILMAN HALL"
+    //     },
+    //     {
+    //       "id": "2",
+    //       "title": "Diwali 2022 Party",
+    //       "type": "Entertainment",
+    //       "description": "cfwdefcw",
+    //       "ticketCount": 89,
+    //       "dateAndTime": "12th June 2022 - 9:00 am",
+    //       "location": "SHILMAN HALL"
+    //     },
+    //     {
+    //       "id": "3",
+    //       "title": "Diwali 2022 Party",
+    //       "type": "Movie",
+    //       "description": "cfwdefcw",
+    //       "ticketCount": 89,
+    //       "dateAndTime": "12th June 2022 - 9:00 am",
+    //       "location": "SHILMAN HALL"
+    //     },
+    //     {
+    //       "id": "4",
+    //       "title": "Diwali 2022 Party",
+    //       "type": "Music",
+    //       "description": "cfwdefcw",
+    //       "ticketCount": 89,
+    //       "dateAndTime": "12th June 2022 - 9:00 am",
+    //       "location": "SHILMAN HALL"
+    //     }
+    //   ]
+    // })
   }, [])
 
   const bookedEventsDisplay = () => {
@@ -79,7 +79,7 @@ function BookedEvents({ user }) {
     let isSubscribed = true;
 
     setshowLoader(true);
-    axios.get('/bookedEvents', uploadProgressOptions)
+    axios.get('/getStudentEvents', uploadProgressOptions)
       .then(response => {
         console.log(response);
         if (isSubscribed === true) {
@@ -131,7 +131,7 @@ function BookedEvents({ user }) {
               <Fab style={{ backgroundColor: "#0e76a8" }} onClick={() => navigate("/dashboard/events")} size="small" color="primary" aria-label="add">
                 <AddIcon />
               </Fab>&nbsp;&nbsp;
-              <span className="smallTextColor fontRegularSmall">Book more events</span><br />
+              <span className="smallTextColor fontRegularSmall">Book events</span><br />
             </div>
           </div>
         </div>
@@ -151,11 +151,11 @@ function BookedEvents({ user }) {
             ) :
             (
               <>
-                {bookedEventDataList.events === null ? null :
+                {bookedEventDataList === null ? null :
                   (
                     <>
                       <div className="row">
-                        {bookedEventDataList.events.map((data, index) => (
+                        {bookedEventDataList.map((data, index) => (
                           <div key={data.id} className="mobileCardCenterView col-xs-12 col-sm-12 col-md-4 col-lg-4"><br />
                             <div id="box" className="card" style={{ width: "100%", borderRadius: "12px" }}>
                               <div className="card-body">
@@ -209,7 +209,7 @@ function BookedEvents({ user }) {
                                                                                 <i style={{ fontSize: "20px", color: "#0e76a8", cursor: "pointer" }} onClick={() => viewMediaFiles(data)} className="fa fa-eye"></i>
                                                                             </div> */}
                                       <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                        Confirmed &nbsp;
+                                        Ticket Confirmed &nbsp;
                                         <i style={{ fontSize: "20px", color: "#3CB371", cursor: "pointer" }} className="fa fa-check"></i>
                                       </div>
                                     </div>

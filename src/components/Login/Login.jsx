@@ -126,7 +126,8 @@ function Login() {
                                     fullWidth
                                     id="password"
                                     label="Password"
-                                    placeholder="Password" type="text" value={password} onChange={e => {
+                                    type="password"
+                                    placeholder="Password" value={password} onChange={e => {
                                         setPassword(e.target.value);
                                     }}
                                 />

@@ -35,7 +35,7 @@ let signupSchema = {
 };
 
 let eventSchema = {
-  emailId: { type: String, required: true },
+  emailId: { type: String },
   id: { type: String, required: true },
   title: { type: String, required: true },
   type: { type: String, required: true },
@@ -70,14 +70,14 @@ const signUpSchema = new Schema(signupSchema, {
 });
 
 //for admin
-const postedEventsSchema = new Schema(eventSchema, {
-  collection: "postedEvents",
+const userEventsSchema = new Schema(eventSchema, {
+  collection: "userEvents",
   timestamps: true,
 });
 
 //for student replicate admin
 const studentEventSchema = new Schema(eventSchema, {
-  collection: "studentEvents",
+  collection: "bookedStudentEvents",
   timestamps: true,
 });
 
@@ -103,7 +103,7 @@ connection.getStudentEvents = async () => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })
-    ).model("Events", eventSchema);
+    ).model("bookedStudentEvents", studentEventSchema);
   } catch (err) {
     let error = new Error("Could not connect to database");
     error.status = 500;
@@ -117,7 +117,7 @@ connection.postEvents = async () => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })
-    ).model("postedEvents", postedEventsSchema);
+    ).model("userEvents", userEventsSchema);
   } catch (err) {
     let error = new Error("Could not connect to database");
     error.status = 500;
@@ -131,7 +131,7 @@ connection.postStudentEvents = async () => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })
-    ).model("studentEvents", eventSchema);
+    ).model("bookedStudentEvents", studentEventSchema);
   } catch (err) {
     let error = new Error("Could not connect to database");
     error.status = 500;
@@ -146,7 +146,7 @@ connection.deleteEvents = async () => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })
-    ).model("postedEvents", postedEventsSchema);
+    ).model("userEvents", userEventsSchema);
   } catch (err) {
     let error = new Error("Could not connect to database");
     error.status = 500;
@@ -161,7 +161,7 @@ connection.getUserEvents = async () => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })
-    ).model("studentEvents", eventSchema);
+    ).model("userEvents", userEventsSchema);
   } catch (err) {
     let error = new Error("Could not connect to database");
     error.status = 500;

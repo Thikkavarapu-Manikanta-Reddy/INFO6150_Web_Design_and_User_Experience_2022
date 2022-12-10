@@ -65,6 +65,18 @@ eventUserModel.findEventByEventId = (eventId) => {
   });
 };
 
+eventUserModel.findStudentEventByEventId = (eventId) => {
+  return collection.getStudentEvents().then((eventModel) => {
+    return eventModel.findOne({ id: eventId }).then((eventData) => {
+      if (eventData === null) {
+        return null;
+      } else {
+        return eventData;
+      }
+    });
+  });
+};
+
 eventUserModel.deleteEvent = (eventId) => {
   return collection.deleteEvents().then((model) => {
     return model.deleteOne({ id: eventId }).then((data) => {
