@@ -4,10 +4,16 @@ const eventServices = require("../services/eventServices");
 const postEvents = async (req, res) => {
   const newEvent = new Events(req.body);
 
+  console.log("ID " + req.body.id);
+
   eventServices
     .createEvents(newEvent)
     .then((result) => {
-      if (result != null) res.json("Event posted Successfully");
+      if (result != null && newEvent.status == "Create") {
+        res.json("Event posted Successfully");
+      } else if (result != null && newEvent.status == "Edit") {
+        res.json("Event updated Successfully");
+      }
     })
     .catch((err) => {
       res.status(400);
@@ -15,4 +21,34 @@ const postEvents = async (req, res) => {
     });
 };
 
-module.exports = { postEvents };
+const postStudentEvents = async (req, res) => {
+  const newStudentEvent = new Events(req.body);
+
+  eventServices
+    .createStudentBookedEvents(newStudentEvent)
+    .then((result) => {
+      if (result != null) res.json("Event added to student collection");
+    })
+    .catch((err) => {
+      res.status(400);
+      res.json({ message: err.message });
+    });
+};
+
+const deleteEvent = async (req, res) => {
+  try {
+    let eventId = req.body.id;
+    eventServices
+      .deleteEvents(eventId)
+      .then((result) => {
+        res.status(200);
+        res.json(`Event with ID ${result} is deleted successfully`);
+      })
+      .catch((err) => {
+        res.status(400);
+        res.json({ message: err.message });
+      });
+  } catch (err) {}
+};
+
+module.exports = { postEvents, postStudentEvents, deleteEvent };
