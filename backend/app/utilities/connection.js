@@ -44,6 +44,7 @@ let eventSchema = {
   dateAndTime: { type: String, required: true },
   dateAndTimeObj: { type: Object, required: true },
   location: { type: String, required: true },
+  status: { type: String },
 };
 
 let userSelectedEventSchema = {
@@ -82,7 +83,6 @@ const studentEventSchema = new Schema(eventSchema, {
 
 connection.getUserCollectionSignUp = async () => {
   try {
-    console.log("COLLECTION");
     return (
       await mongoose.connect(process.env.DATABASE, {
         useNewUrlParser: true,
@@ -112,7 +112,6 @@ connection.getStudentEvents = async () => {
 };
 connection.postEvents = async () => {
   try {
-    console.log("COLLECTION");
     return (
       await mongoose.connect(process.env.DATABASE, {
         useNewUrlParser: true,
@@ -133,6 +132,21 @@ connection.postStudentEvents = async () => {
         useUnifiedTopology: true,
       })
     ).model("studentEvents", eventSchema);
+  } catch (err) {
+    let error = new Error("Could not connect to database");
+    error.status = 500;
+    throw error;
+  }
+};
+
+connection.deleteEvents = async () => {
+  try {
+    return (
+      await mongoose.connect(process.env.DATABASE, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      })
+    ).model("postedEvents", postedEventsSchema);
   } catch (err) {
     let error = new Error("Could not connect to database");
     error.status = 500;

@@ -1,24 +1,38 @@
-const { data } = require("jquery");
 const userdb = require("../model/eventUserModel");
 let eventServices = {};
 
 eventServices.createEvents = (UserObj) => {
-  return userdb.findEventsByNameAndType(UserObj.eventId).then((object) => {
-    console.log("inside findEventsByNameAndType");
-    if (object != null) {
-      let err = new Error("Event already exists at this Time");
+  return userdb.postEvent(UserObj).then((data) => {
+    if (data) {
+      return data;
+    } else {
+      let err = new Error("Unable to Post an Event");
       err.status = 404;
       throw err;
-    } else {
-      return userdb.postEvent(UserObj).then((data) => {
+    }
+  });
+};
+
+eventServices.deleteEvents = (eventId) => {
+  console.log("eventIDD" + eventId);
+
+  return userdb.findEventByEventId(eventId).then((object) => {
+    if (object && object.id == eventId) {
+      return userdb.deleteEvent(eventId).then((data) => {
+        console.log("data " + data);
         if (data) {
-          return data;
+          console.log("data " + data);
+          return object.id;
         } else {
-          let err = new Error("Unable to Post an Event");
-          err.status = 404;
+          let err = new Error("User delete failed");
+          err.status = 503;
           throw err;
         }
       });
+    } else {
+      let err = new Error("User does not exist");
+      err.status = 404;
+      throw err;
     }
   });
 };

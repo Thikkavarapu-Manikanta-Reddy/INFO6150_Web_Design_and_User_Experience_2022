@@ -2,10 +2,16 @@ import React from 'react';
 import supportTeam from "../../../assets/undraw_instant_support_elxh.svg";
 import "./Home.scss";
 import { useNavigate } from "react-router-dom";
+import localStorageServic from '../../../configs/LocalStorageService';
 
 function Home({ user }) {
 
     const navigate = useNavigate();
+
+    const logout = () => {
+        localStorageServic.removeSessionData();
+        navigate("/login");
+    }
 
     return (
         <div style={{ width: "70%", margin: "auto" }}>
@@ -72,6 +78,14 @@ function Home({ user }) {
                     </div><br />
                     <p className="secondaryColor fontRegularSmall">
                         Refer & Earn
+                    </p>
+                </div>
+                <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 text-center">
+                    <div onClick={logout} className="hoverTransition">
+                        <i style={{ marginTop: "25px", fontSize: "40px" }} className="fa fa-sign-out-alt"></i>
+                    </div><br />
+                    <p className="secondaryColor fontRegularSmall">
+                        Logout
                     </p>
                 </div>
             </div><br />

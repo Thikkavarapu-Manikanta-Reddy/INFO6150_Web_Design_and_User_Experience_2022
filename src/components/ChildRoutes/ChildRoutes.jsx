@@ -42,8 +42,8 @@ function ChildRoutes(props) {
                                         className={`nav_item push_right`}
                                     >
                                         <a href="#">
-                                            <Avatar name={loggedUser.name} size="35" round={true} /> &nbsp;
-                                            {loggedUser.name}</a>
+                                            <Avatar name={loggedUser.firstName + " " + loggedUser.lastName} size="35" round={true} /> &nbsp;
+                                            {loggedUser.firstName + " " + loggedUser.lastName}</a>
                                     </li>
                                 </ul>
                             </nav>

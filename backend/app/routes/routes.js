@@ -17,6 +17,8 @@ router.get("/getStudentEvents", userEventsController.getUserEvents); //query stu
 
 router.post("/postStudentEvents");
 
+router.delete('/deleteEvent', eventController.deleteEvent);
+
 module.exports = router;
 
 //swap getUserEvents, getStudentEvents

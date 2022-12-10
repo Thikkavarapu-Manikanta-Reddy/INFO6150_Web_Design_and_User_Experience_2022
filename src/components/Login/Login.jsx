@@ -2,12 +2,84 @@ import React, { useState, useEffect } from 'react';
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
+import axios from "../../configs/axiosConfig";
+import localStorageService from '../../configs/LocalStorageService';
+import Snackbar from '../../components/SnackBar/SnackBar';
+import EndPointLoader from '../../components/EndPointLoader/EndPointLoader';
 
 function Login() {
 
-    const [emaiId, setEmailId] = useState('');
+    const [emailId, setEmailId] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+
+    const [MessageHandler, setMessageHandler] = useState({ message: '', status: true });
+
+    const [open, setOpen] = React.useState(false);
+
+    const [showLoader, setshowLoader] = useState(false);
+    const [uploadPercentage, setuploadPercentage] = useState(0);
+
+    const uploadProgressOptions = {
+        onUploadProgress: (progressEvent) => {
+            const { loaded, total } = progressEvent;
+            let percent = Math.floor((loaded * 100) / total)
+            console.log(`${loaded}bytes of ${total}bytes | ${percent}%`);
+            setuploadPercentage(percent);
+        }
+    }
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
+
+    const login = () => {
+
+        let isSubscribed = true;
+
+        let payload = {
+            "emailId": emailId,
+            "password": password
+        }
+
+        setshowLoader(true);
+        axios.post('/login', payload, uploadProgressOptions)
+            .then(response => {
+                console.log(response);
+                if (isSubscribed === true) {
+                    if (response.data.success === true) {
+                        setMessageHandler({ ...MessageHandler, message: response.data.message, status: true });
+                        handleClick();
+                        setTimeout(() => {
+                            // localStorageService.setToken(response.data);
+                            localStorageService.setUser(response.data.data);
+                            navigate("/dashboard");
+                        }, 1000);
+                    }
+                    else {
+                        setMessageHandler({ ...MessageHandler, message: response.data.message, status: false });
+                        handleClick();
+                    }
+                }
+                setshowLoader(false);
+            })
+            .catch(error => {
+                if (isSubscribed === true) {
+                    console.log(error, error.response, error.message, error.request);
+                    setMessageHandler({ ...MessageHandler, message: error.response.data.message, status: false });
+                    handleClick();
+                }
+                setshowLoader(false);
+            })
+        return () => (isSubscribed = false);
+    }
 
     useEffect(() => {
     }, []);
@@ -38,11 +110,12 @@ function Login() {
                                     id="email"
                                     label="Email Id"
                                     autoFocus
-                                    placeholder="Email Id" type="email" value={emaiId} onChange={e => {
-                                        setEmailId(e.target.value);}}
+                                    placeholder="Email Id" type="email" value={emailId} onChange={e => {
+                                        setEmailId(e.target.value);
+                                    }}
                                 />
 
-                                {/* <input placeholder="Email Id*" type="email" value={emaiId} onChange={e => {
+                                {/* <input placeholder="Email Id*" type="email" value={emailId} onChange={e => {
                                     setEmailId(e.target.value);
                                 }} /> */}
                                 <br /><div style={{ marginTop: "15px" }} />
@@ -63,7 +136,7 @@ function Login() {
                                     setPassword(e.target.value);
                                 }} /> */}
                                 <br /><br />
-                                <button className="button button1" type="button" disabled={emaiId === '' || password === ''}>
+                                <button onClick={login} className="button button1" type="button" disabled={emailId === '' || password === ''}>
                                     <span className="fontBoldMiniSmall">Login</span></button><br /><br />
                                 <p className="smallTextColor fontRegularSmall">Don't have an account ?</p>
                                 <button onClick={() => navigate("/redirect")} style={{ color: "#069", textDecoration: "underline", cursor: "pointer", background: "none", border: "none", padding: "0" }}>SignUp</button>
@@ -75,6 +148,8 @@ function Login() {
                     <div className="col-xs-12 col-sm-12 col-md-1 col-lg-1"></div>
                 </div>
             </div>
+            {showLoader === true ? <EndPointLoader showLoader={showLoader} uploadPercentage={uploadPercentage} /> : null}
+            {open === true ? <Snackbar handleClose={handleClose} status={MessageHandler.status} message={MessageHandler.message} openStatus={open} /> : null}
         </div>
     )
 }
