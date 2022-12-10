@@ -9,10 +9,17 @@ router.post("/login", loginController.login);
 
 router.post("/signup", signupController.signup);
 
-router.get("/getStudentEvents", userEventsController.getStudentEvents);
+router.get("/getUserEvents", userEventsController.getStudentEvents);
 
 router.post("/postEvent", eventController.postEvents);
 
-router.get("/getUserEvents", userEventsController.getUserEvents);
+router.get("/getStudentEvents", userEventsController.getUserEvents); //query student collection and change name to getStudent
+
+router.post("/postStudentEvents");
 
 module.exports = router;
+
+//swap getUserEvents, getStudentEvents
+//after swapping has been done, in getStudent instead of quering in event, creat new collection STUDENT and get data from there
+//getUserEvents untouched
+// postStudentEvents => STUDENT collection

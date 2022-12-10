@@ -15,4 +15,18 @@ const postEvents = async (req, res) => {
     });
 };
 
-module.exports = { postEvents };
+const postStudentEvents = async (req, res) => {
+  const newStudentEvent = new Events(req.body);
+
+  eventServices
+    .createStudentBookedEvents(newStudentEvent)
+    .then((result) => {
+      if (result != null) res.json("Event added to student collection");
+    })
+    .catch((err) => {
+      res.status(400);
+      res.json({ message: err.message });
+    });
+};
+
+module.exports = { postEvents, postStudentEvents };
