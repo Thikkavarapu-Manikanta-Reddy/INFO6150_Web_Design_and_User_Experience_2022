@@ -155,6 +155,7 @@ connection.deleteEvents = async () => {
 };
 
 connection.getUserEvents = async () => {
+  console.log(process.env.DATABASE);
   try {
     return (
       await mongoose.connect(process.env.DATABASE, {
