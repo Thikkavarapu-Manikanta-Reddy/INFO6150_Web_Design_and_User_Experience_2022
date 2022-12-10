@@ -15,17 +15,16 @@ const login = async (req, res) => {
     const userDataFromDb = await userdb.findUserByEmail(emailId);
     console.log("userDataFromDb" + userDataFromDb);
     if (userDataFromDb) {
-      
+      res.json({ data: userDataFromDb, success: true, message: "Successfully authenticated !!" });
 
-      res.json(userDataFromDb);
-      
     } else {
-      res.json("User not found. Please signup");
+      res.status(404);
+      res.json({ message: "User not found. Please signup", success: false });
     }
   } catch (err) {
     console.log(err);
     res.status(400);
-    res.json({ status: "Please Register!!" });
+    res.json({ message: "Please check the entered details !!", success: false });
   }
 };
 
