@@ -14,6 +14,7 @@ function App() {
   );
 
   return (
+    // Routes
     <Suspense fallback={LazyLoader()}>
       <Routes>
         <Route exact path="/" element={<Home />} />
