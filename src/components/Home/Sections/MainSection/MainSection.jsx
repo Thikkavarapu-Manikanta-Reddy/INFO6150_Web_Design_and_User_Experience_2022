@@ -37,6 +37,10 @@ const MainSection = () => {
       {
         "name": "Download",
         "url": "#download"
+      },
+      {
+        "name": "Login",
+        "url": "#login"
       }
     ],
     "tertiary_color": "var(--tertiary_color)"

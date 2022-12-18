@@ -53,6 +53,11 @@ function Header(props) {
         navigate('/login');
     };
 
+    const mobileLogin = () => {
+        onClose();
+        goToLogin();
+    }
+
     const handleNavigation = useCallback(
         (e) => {
             const window = e.currentTarget;
@@ -201,9 +206,15 @@ function Header(props) {
                                         <ol>
                                             {props.navLinks.map(({ url, name }, i) => (
                                                 <li key={i}>
-                                                    <a href={url} onClick={() => onClose()}>
-                                                        {name}
-                                                    </a>
+                                                    {
+                                                        name == "Login" ?
+                                                            <a onClick={mobileLogin}>
+                                                                {name}
+                                                            </a> :
+                                                            <a href={url} onClick={() => onClose()}>
+                                                                {name}
+                                                            </a>
+                                                    }
                                                 </li>
                                             ))}
                                         </ol>
