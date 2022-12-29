@@ -33,6 +33,10 @@ function Login() {
         setOpen(true);
     };
 
+    const goToHome = () => {
+        navigate("/");
+    }
+
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
             return;
@@ -89,7 +93,7 @@ function Login() {
                 <div className="row">
                     <div className="col-xs-12 col-sm-12 col-md-1 col-lg-1"></div>
                     <div className="col-xs-12 col-sm-12 col-md-5 col-lg-5 text-center"><br /><br /><br />
-                        <h4 className="secondary-color fontBoldMedium" ><i className="fa fa-graduation-cap"></i>Event Ding</h4><br />
+                        <h4 style={{cursor: "pointer"}} onClick={goToHome} className="secondary-color fontBoldMedium" ><i className="fa fa-graduation-cap"></i>Event Ding</h4><br />
                         <img className="imageSize" src="/Images/screen-1.png" alt="Not_Found" /><br /><br /><br />
                         <h4 className="smallTextColor fontRegularMedium">Biggest platform to host college events.</h4>
                     </div>

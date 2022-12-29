@@ -32,7 +32,7 @@ function Home({ user }) {
             <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 text-center">
                     <div onClick={() => navigate("/dashboard/events")} className="hoverTransition">
-                        <i style={{ marginTop: "25px", fontSize: "40px" }} className="fas fa-bullhorn"></i>
+                        <i style={{ marginTop: "25px", fontSize: "40px" }} className="fa fa-bullhorn"></i>
                     </div><br />
                     <p className="secondaryColor fontRegularSmall">
                         Events
@@ -82,7 +82,7 @@ function Home({ user }) {
                 </div>
                 <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 text-center">
                     <div onClick={logout} className="hoverTransition">
-                        <i style={{ marginTop: "25px", fontSize: "40px" }} className="fa fa-sign-out-alt"></i>
+                        <i style={{ marginTop: "25px", fontSize: "40px" }} className="fa fa-sign-out"></i>
                     </div><br />
                     <p className="secondaryColor fontRegularSmall">
                         Logout

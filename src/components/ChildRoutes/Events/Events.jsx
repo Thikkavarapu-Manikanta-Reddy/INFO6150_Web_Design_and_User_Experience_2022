@@ -217,7 +217,7 @@ function Events({ user }) {
             <div className="container-fluid">
                 <div className="row">
                     <div style={{ marginTop: "20px" }} className="mobileCardCenterView col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                        <h5 className="secondary-color fontBoldSmall"><i className="fas fa-child"></i>&nbsp;&nbsp;
+                        <h5 className="secondary-color fontBoldSmall"><i className="fa fa-bullhorn"></i>&nbsp;&nbsp;
                             {
                                 user.role == "Admin" ? <span>Event hosting</span> : <span>Events</span>
                             }
