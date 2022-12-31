@@ -54,16 +54,16 @@ function Register() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get("user_email"),
+      email: data.get("email"),
       password: data.get("password"),
     });
 
     emailjs
       .sendForm(
-        "service_ow62gig",
-        "template_nfe8vak",
+        "service_slcetir",
+        "template_q9gml3d",
         form.current,
-        "aIr5TJYeFklo-paEK"
+        "YSckZpQphvGyoicsA"
       )
       .then(
         (result) => {
@@ -138,7 +138,7 @@ function Register() {
                   fullWidth
                   id="email"
                   label="Email Address"
-                  name="user_email"
+                  name="email"
                   autoComplete="email"
                   autoFocus
                 />
