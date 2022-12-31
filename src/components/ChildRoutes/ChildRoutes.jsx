@@ -30,16 +30,16 @@ function ChildRoutes(props) {
             {
                 loggedUser ?
                     <>
-                        <header className="navBar_header">
+                        <header className="navBar_header1">
                             <div className="left_content">
                                 <div onClick={() => navigate("/dashboard")} style={{ cursor: "pointer" }}>
                                     <img className="img_logo" src={logoImage} alt="logo" width="40" height="40" />
                                 </div>
                             </div>
-                            <nav className="nav_container">
-                                <ul className="nav_items">
+                            <nav className="nav_container1">
+                                <ul className="nav_items1">
                                     <li
-                                        className={`nav_item push_right`}
+                                        className={`nav_item1 push_right1`}
                                     >
                                         <a href="#">
                                             <Avatar name={loggedUser.firstName + " " + loggedUser.lastName} size="35" round={true} /> &nbsp;
